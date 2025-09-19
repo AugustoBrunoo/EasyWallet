@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Michroma&family=Special+Gothic+Expanded+One&display=swap');
+
+
+.logo-site-header {
+    display: flex;
+    align-items: center;
+    /* height: 30px;
+    width: 100px; */
+    /* background-color: red; */
+    margin-right: 30%;
+    justify-content: center;
+}
+
+.texto-logo {
+    font-family: "Michroma", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* 
+.img-logo {
+    width: 0px;
+    scale: 30%;
+} */
+
+/* .logo-site-header img {
+    scale: 30%;
+} */
+
+@media (max-width: 1024px) {
+    .logo-site-header {
+        margin-right: 30%;
+    }
+}
