@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título da página alterado -->
+    <title>EasyWallet - Sobre Nós</title>
+    <link rel="shortcut icon" href="../../assets/logo-site/logo-iniciais.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Importação dos Ícones (Bootstrap Icons) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../../styles/styleGlobal.css">
+    <link rel="stylesheet" href="./sobreNos.css">
+</head>
+
+<body>
+
+    <!-- --- Header (Copiado do index.html) --- -->
+    <header class="header">
+        <div class="container nav-container">
+            <a href="../../index.html" class="logo">
+                <!-- Corrigir a imagem da logo - há fundo nela e a iamgem fica pequena-->
+                <img src="../../assets/logo-site/logo-carteira.png" alt="Logo EasyWallet">
+                <p class="nome-logo">EasyWallet</p>
+            </a>
+
+            <!-- Menu para Desktop -->
+            <nav class="nav-links" id="nav-menu">
+                <ul>
+                    <li><a href="#">Como Funciona?</a></li>
+                    <li><a href="../../index.html">Início</a></li>
+                    <li><a href="../../pages/SobreNos/sobreNos.html" class="active">Sobre Nós</a></li>
+                    <!-- O item de login mobile será injetado aqui via JS -->
+                </ul>
+            </nav>
+
+            <a href="#" class="btn-login btn-login-desktop">Login</a>
+
+            <!-- Botão de Menu Mobile -->
+            <button class="menu-toggle" id="menu-toggle-btn" aria-label="Abrir menu">
+                <i class="bi bi-list"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- --- NOVA SEÇÃO: Sobre Nós --- -->
+        <section class="about-section">
+            <div class="container">
+                <h2>Sobre Nossa Equipe</h2>
+                <p class="team-intro">
+                    Somos a força por trás do EasyWallet. Um grupo de estudantes de Sistemas de Informação da UNIRIO,
+                    apaixonados por tecnologia e finanças. Estamos empenhados em criar soluções que realmente façam a
+                    diferença na vida dos estudantes. Juntos, combinamos nossas habilidades em Front-End, Back-End, IA e
+                    design para construir uma ferramenta intuitiva, poderosa e acessível. Conheça quem torna tudo isso
+                    possível:
+                </p>
+
+                <div class="team-grid">
+
+                    <!-- Card 1: Augusto Bruno -->
+                    <div class="dev-card">
+                        <div class="dev-image">
+                            <!-- Substitua o src pela imagem real -->
+                            <img src="../../assets/fotosSobreNos/fotoAugusto.jpg" alt="Foto de Augusto Bruno">
+                        </div>
+                        <div class="dev-content">
+                            <h3>Augusto Bruno</h3>
+                            <h4>Desenvolvedor Front-End</h4>
+                            <p class="dev-description">
+                                Estudante de SI (UNIRIO) e dev Front-End (Oracle Next Education). Foco em HTML, CSS,
+                                JavaScript e React. Sempre em busca de aprendizado contínuo.
+                            </p>
+                            <div class="dev-social">
+                                <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                                <a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                                <a href="#" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Willyam Souza -->
+                    <div class="dev-card">
+                        <div class="dev-image">
+                            <!-- Substitua o src pela imagem real -->
+                            <img src="../../assets/fotosSobreNos/fotoWillyam.jpeg" alt="Foto de Willyam Souza">
+                        </div>
+                        <div class="dev-content">
+                            <h3>Willyam Souza</h3>
+                            <h4>Desenvolvedor Back-end</h4>
+                            <p class="dev-description">
+                                Estudante de SI (UNIRIO) e dev Back-end Junior. Conhecimento em Java, Python, PHP,
+                                Node.js e MySQL.
+                            </p>
+                            <div class="dev-social">
+                                <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                                <a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                                <a href="#" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Daniel Zuvanov -->
+                    <div class="dev-card">
+                        <div class="dev-image">
+                            <!-- Substitua o src pela imagem real -->
+                            <img src="../../assets/fotosSobreNos/fotoDaniel.png" alt="Foto de Daniel Zuvanov">
+                        </div>
+                        <div class="dev-content">
+                            <h3>Daniel Zuvanov</h3>
+                            <h4>Analista de IA</h4>
+                            <p class="dev-description">
+                                Estudante de SI (UNIRIO) e Analista de Inteligência Artificial. Domina Python,
+                                JavaScript, C e Machine Learning. Amante da IA.
+                            </p>
+                            <div class="dev-social">
+                                <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                                <a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                                <a href="#" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: João Pedro -->
+                    <div class="dev-card">
+                        <div class="dev-image">
+                            <!-- Substitua o src pela imagem real -->
+                            <img src="../../assets/fotosSobreNos/fotoJoaoPedro.png" alt="Foto de João Pedro Rodrigues">
+                        </div>
+                        <div class="dev-content">
+                            <h3>João Pedro</h3>
+                            <h4>Desenvolvedor Full-Stack</h4>
+                            <p class="dev-description">
+                                Estudante de Sistemas de Informação na UNIRIO e Desenvolvedor Full-Stack Senior com
+                                vasta experiência em projetos complexos.
+                            </p>
+                            <div class="dev-social">
+                                <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                                <a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                                <a href="#" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- --- Footer (Idêntico ao index.html) --- -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-links">
+                <a href="#">Sobre</a>
+                <a href="#">Contato</a>
+                <a href="#">Privacidade</a>
+            </div>
+            <div class="footer-social">
+                <a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                <a href="#" aria-label="Discord"><i class="bi bi-discord"></i></a>
+            </div>
+            <div class="footer-copy">
+                Copyright @ EasyWallet 2025
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script para o Menu Mobile (Idêntico ao index.html) -->
+    <script src="../../scripts/scriptGlobal.js"></script>
+
+</body>
+
+</html>

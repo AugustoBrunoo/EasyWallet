@@ -9,6 +9,14 @@
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="./styles/styleGlobal.css">
 
+    <!-- Importação das Fontes (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Importação dos Ícones (Bootstrap Icons) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
     <title>Easy Wallet</title>
 
 </head>
@@ -16,55 +24,118 @@
 <body>
     <!-- Página inicial (Landing Page Inicial) - Home -->
 
-    <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-                <div class="d-flex logo-site-header">
-                    <div class="img-logo">
-                        <!-- <img src="./assets/logo-site/logo-carteira.png" alt=""> -->
-                    </div>
-                    <h1 class="texto-logo"><a class="navbar-brand" href="#">EasyWallet</a></h1>
-                </div>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Página Inicial</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Entrar</a>
-                        </li>
-                        <!-- 
-                        Lista suspensa
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Dropdown
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li> -->
-                    </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Pesquisar..." aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Pesquisar</button>
-                    </form>
-            </div>
-            </div>
-        </nav>
+    <!-- --- Header --- -->
+    <header class="header">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <!-- Corrigir a imagem da logo - há fundo nela e a iamgem fica pequena-->
+                <img src="./assets/logo-site/logo-carteira.png" alt="Logo EasyWallet">
+                <p class="nome-logo">EasyWallet</p>
+            </a>
+
+            <!-- Menu para Desktop -->
+            <nav class="nav-links" id="nav-menu">
+                <ul>
+                    <li><a href="#">Como Funciona?</a></li>
+                    <li><a href="#" class="active">Início</a></li>
+                    <li><a href="./pages/SobreNos/sobreNos.html">Sobre Nós</a></li>
+                    <!-- O item de login mobile será injetado aqui via JS (ajustar)-->
+                </ul>
+            </nav>
+
+            <a href="./pages/Login/login.html" class="btn-login btn-login-desktop">Login</a>
+
+            <!-- Botão de Menu Mobile -->
+            <button class="menu-toggle" id="menu-toggle-btn" aria-label="Abrir menu">
+                <i class="bi bi-list"></i>
+            </button>
+        </div>
     </header>
-    <main></main>
-    <footer></footer>
+
+    <main>
+        <!-- --- Seção Hero --- -->
+        <section class="hero">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <h1>Olá, estudante!</h1>
+                    <h2>Bem-vindo à EasyWallet!</h2>
+                    <p>
+                        Sabemos que a rotina na UNIRIO é corrida, por isso criamos este
+                        planejador para otimizar sua vida financeira!
+                        Registre de forma simples seus ganhos e gastos, e receba uma análise do seu
+                        perfil para começar a investir. Assuma o controle do seu dinheiro e faça-o
+                        render, mesmo com pouco tempo!
+                    </p>
+                    <a href="#" class="btn-cta">Comece Agora (É grátis!)</a>
+                </div>
+                <div class="hero-image">
+                    <!-- Imagem adicionada diretamente ao HTML -->
+                    <img src="./assets/imgs/imagem_pagina_inicial.png"
+                        alt="Visualização do App EasyWallet em celular e notebook">
+                </div>
+            </div>
+        </section>
+
+        <!-- --- Seção Features --- -->
+        <section class="features">
+            <div class="container">
+                <h2 class="features-title">Tudo que você precisa para decolar financeiramente!</h2>
+
+                <div class="features-grid">
+                    <!-- Card 1: Controle de Gastos -->
+                    <div class="feature-card">
+                        <i class="bi bi-cash-coin"></i>
+                        <h3>Controle de Gastos</h3>
+                        <p>
+                            Entenda para onde seu dinheiro vai. Cadastre seus gastos em
+                            segundos e veja relatórios simples que te ajudam a identificar onde
+                            você pode economizar no dia a dia.
+                        </p>
+                    </div>
+
+                    <!-- Card 2: Planejador de Metas -->
+                    <div class="feature-card">
+                        <i class="bi bi-graph-up-arrow"></i>
+                        <h3>Planejador de Metas</h3>
+                        <p>
+                            Defina seus objetivos e nós mostramos o caminho. Crie metas
+                            personalizadas e veja o quanto você precisa guardar por mês
+                            para realizar seus planos a tempo.
+                        </p>
+                    </div>
+
+                    <!-- Card 3: Guia de Investimentos -->
+                    <div class="feature-card">
+                        <i class="bi bi-rocket-takeoff"></i>
+                        <h3>Guia de Investimentos</h3>
+                        <p>
+                            Investir não precisa ser complicado. Descubra seu perfil de investidor e
+                            receba sugestões claras de onde começar, mesmo com pouco dinheiro.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- --- Footer --- -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-links">
+                <a href="./pages/SobreNos/sobreNos.html">Sobre Nós</a>
+                <a href="#">Contato</a>
+                <a href="#">Privacidade</a>
+            </div>
+            <div class="footer-social">
+                <a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                <a href="#" aria-label="Discord"><i class="bi bi-discord"></i></a>
+            </div>
+            <div class="footer-copy">
+                Copyright @ EasyWallet 2025
+            </div>
+        </div>
+    </footer>
 
     <script src="./scripts/scriptGlobal.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"

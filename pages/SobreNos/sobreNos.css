@@ -1,0 +1,344 @@
+/* --- Variáveis de Cor --- */
+:root {
+    --cinza: #393E46;
+    --azul-marinho: #222831;
+    --azul: #00ADB5;
+    --branco-gelo: #EEEEEE;
+}
+
+/* --- Estilos Globais --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--azul-marinho);
+    color: var(--branco-gelo);
+    line-height: 1.6;
+    /* Evita scroll horizontal */
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Botão de Menu Mobile */
+.menu-toggle {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: var(--branco-gelo);
+    cursor: pointer;
+}
+
+/* CSS para o item de login clonado no menu mobile */
+.btn-login-mobile-li {
+    display: none;
+    /* Escondido por padrão no desktop */
+}
+
+/* --- Seção Features (Removida) --- */
+/* --- Seção Hero (Removida) --- */
+
+
+/* --- NOVOS ESTILOS: Seção Sobre Nós --- */
+.about-section {
+    padding: 6rem 0;
+    text-align: center;
+}
+
+.about-section h2 {
+    font-size: 2.75rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--branco-gelo);
+}
+
+.team-intro {
+    font-size: 1.125rem;
+    color: #c0c0c0;
+    max-width: 800px;
+    margin: 0 auto 4rem auto;
+    line-height: 1.7;
+}
+
+.team-grid {
+    display: grid;
+    /* 4 colunas no desktop */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2.5rem;
+    text-align: left;
+    /* Alinha o texto dos cards à esquerda */
+}
+
+.dev-card {
+    background-color: var(--cinza);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dev-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.dev-image img {
+    width: 100%;
+    height: 280px;
+    /* Altura fixa para as imagens */
+    object-fit: cover;
+    background-color: var(--azul-marinho);
+    /* Fundo para o placeholder */
+}
+
+.dev-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    /* Faz o conteúdo crescer e empurra o social para baixo */
+}
+
+.dev-content h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--branco-gelo);
+    margin-bottom: 0.25rem;
+}
+
+.dev-content h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--azul);
+    margin-bottom: 1rem;
+}
+
+.dev-description {
+    font-size: 0.9rem;
+    color: #c0c0c0;
+    line-height: 1.5;
+    flex-grow: 1;
+    /* Ocupa o espaço disponível */
+    margin-bottom: 1.5rem;
+}
+
+.dev-social {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    /* Centraliza os ícones */
+    font-size: 1.75rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--azul-marinho);
+}
+
+.dev-social a {
+    color: var(--branco-gelo);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.dev-social a:hover {
+    color: var(--azul);
+    transform: scale(1.1);
+}
+
+/* --- FIM DOS NOVOS ESTILOS --- */
+
+
+/* --- Footer (Idêntico ao index.html) --- */
+.footer {
+    background-color: var(--azul-marinho);
+    padding: 4rem 0 3rem;
+    border-top: 1px solid rgba(238, 238, 238, 0.1);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.footer-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.footer-links a {
+    color: var(--branco-gelo);
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--azul);
+}
+
+.footer-social {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.footer-social a {
+    font-size: 1.75rem;
+    color: var(--branco-gelo);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-social a:hover {
+    color: var(--azul);
+    transform: scale(1.1);
+}
+
+.footer-copy {
+    font-size: 0.9rem;
+    color: #c0c0c0;
+}
+
+/* --- Responsividade --- */
+
+/* Tablets e menores */
+@media (max-width: 992px) {
+
+    /* Estilos antigos da home */
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-text p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-image {
+        order: -1;
+        margin-bottom: 3rem;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Novos estilos da página Sobre */
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 colunas */
+    }
+}
+
+/* Celulares */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-wrap: wrap;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        /* Escondido por padrão */
+        flex-direction: column;
+        width: 100%;
+        background-color: var(--cinza);
+        position: absolute;
+        top: 85px;
+        /* Altura do header */
+        left: 0;
+        padding: 1rem 0;
+    }
+
+    .nav-links ul {
+        flex-direction: column;
+    }
+
+    .nav-links li {
+        margin: 1rem 0;
+        text-align: center;
+    }
+
+    .btn-login.btn-login-desktop {
+        display: none;
+        /* Esconde o botão de login original no mobile */
+    }
+
+    /* Mostra o item da lista que contém o botão clonado */
+    .btn-login-mobile-li {
+        display: list-item;
+        text-align: center;
+        margin-top: 1rem;
+    }
+
+    /* Estilos antigos da home */
+    .hero {
+        padding: 4rem 0;
+    }
+
+    .hero-text h1 {
+        font-size: 2.25rem;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Novos estilos da página Sobre */
+    .about-section h2 {
+        font-size: 2.25rem;
+    }
+
+    .team-grid {
+        grid-template-columns: 1fr;
+        /* 1 coluna */
+    }
+
+    /* Estilos antigos do footer */
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-links {
+        order: 2;
+    }
+
+    .footer-social {
+        order: 1;
+    }
+
+    .footer-copy {
+        order: 3;
+    }
+}

@@ -1,3 +1,5 @@
+//Script para o Menu Mobile(Idêntico ao index.html)
+
 // Adiciona um script simples para o menu mobile
 document.addEventListener('DOMContentLoaded', function () {
     const menuToggleBtn = document.getElementById('menu-toggle-btn');
@@ -50,4 +52,5 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     });
+
 });
