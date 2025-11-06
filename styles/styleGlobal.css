@@ -65,6 +65,11 @@ ul {
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
+    line-height: 1; /* Garante que o texto não adicione altura extra */
+    margin: 0; /* Remove margens padrão que <p> pode ter */
+    /* Se o texto ainda parecer ligeiramente desalinhado, você pode tentar um pequeno ajuste */
+    /* position: relative; */
+    
 }
 
 .nome-destaque {
@@ -91,9 +96,11 @@ ul {
 }
 
 .logo img {
-    /* Use a altura da imagem de logo que você enviou */
-    height: 40px;
-    margin-right: 0.75rem;
+    /* Use max-height para controlar o tamanho máximo da imagem */
+    max-height: 55px; /* Ajuste este valor (ex: 50px, 55px, 60px) para o tamanho que você quer que ela tenha */
+    width: auto;      /* Mantém a proporção original */
+    display: block;   /* Remove espaços extras indesejados */
+    margin: 0; /* Remove qualquer margem para evitar empurrar */
 }
 
 .nav-links {
