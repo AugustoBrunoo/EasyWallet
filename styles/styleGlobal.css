@@ -65,6 +65,7 @@ ul {
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
+    
 }
 
 .nav-container {
@@ -90,7 +91,9 @@ ul {
     height: 40px;
     margin-right: 0.75rem;
     /* Inverte a cor se o logo for escuro em fundo escuro (opcional) */
-    /* filter: invert(1); */
+    filter: invert(1); 
+
+    
 }
 
 .nav-links {

@@ -1,0 +1,204 @@
+/* Define a cor de fundo escura para a página de cadastro */
+body {
+    /* Esta cor é puxada do seu styleGlobal.css, mas garantindo aqui */
+    background-color: var(--color-background, #212529);
+}
+
+/* Container principal da página de cadastro */
+.cadastro-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 1rem; /* Espaçamento no topo/baixo e lateral */
+    min-height: calc(100vh - 140px); /* Altura mínima (viewport - header - footer) */
+}
+
+/* O "card" que engloba os dois lados */
+.cadastro-container {
+    display: grid;
+    /* Duas colunas de tamanho igual */
+    grid-template-columns: 1fr 1fr;
+    max-width: 960px; /* Largura máxima do card */
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 12px;
+    overflow: hidden; /* Garante que os cantos arredondados sejam aplicados */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Lado Esquerdo: Formulário --- */
+.form-section {
+    background-color: #FFFFFF;
+    padding: 2.5rem;
+    color: #333;
+}
+
+.form-section h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #212529;
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+/* Estilo dos campos de input */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #DDE2E5;
+    border-radius: 6px;
+    background-color: #F8F9FA; /* Fundo cinza claro como no Figma */
+    font-size: 1rem;
+    box-sizing: border-box; /* Garante que o padding não estoure a largura */
+}
+
+.form-group input::placeholder {
+    color: #999;
+}
+
+/* Estilo do Checkbox */
+.form-group-checkbox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.form-group-checkbox input[type="checkbox"] {
+    margin-right: 0.5rem;
+    width: 16px;
+    height: 16px;
+}
+
+.form-group-checkbox label {
+    margin: 0;
+    font-weight: 400;
+}
+
+.form-group-checkbox a {
+    color: var(--color-primary, #007BFF); /* Usando uma cor primária (ajuste no global se necessário) */
+    text-decoration: none;
+    font-weight: 700;
+}
+
+/* Botão de Criar Conta */
+.btn-criar-conta {
+    width: 100%;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 6px;
+    background-color: #E9ECEF; /* Cor do botão do Figma */
+    color: #555;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-criar-conta:hover {
+    background-color: #DDE2E5; /* Um pouco mais escuro no hover */
+}
+
+/* Link para Login */
+.login-link {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.login-link a {
+    color: var(--color-primary, #007BFF);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+/* --- Lado Direito: Informações --- */
+.info-section {
+    /* O fundo escuro já vem do .cadastro-container e do body */
+    /* A cor do texto é definida no styleGlobal.css (branca) */
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--color-background-nav, #343A40); /* Cor de fundo escura do Figma */
+}
+
+.info-section h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.info-section p {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    color: #E0E0E0; /* Texto um pouco menos branco */
+}
+
+/* Caixas de features (do Figma) */
+.feature-box {
+    background-color: #1ABC9C; /* Cor verde/teal do Figma */
+    color: #FFFFFF;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.feature-box:last-child {
+    margin-bottom: 0;
+}
+
+.feature-box i {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    /* Alinha o ícone verticalmente */
+    display: flex; 
+    align-items: center;
+}
+
+/* --- Responsividade (Mobile) --- */
+@media (max-width: 768px) {
+    .cadastro-page {
+        padding: 2rem 1rem; /* Menor espaçamento em telas pequenas */
+    }
+
+    .cadastro-container {
+        /* As colunas quebram e ficam uma sobre a outra */
+        grid-template-columns: 1fr;
+    }
+
+    .info-section {
+        /* No mobile, é comum inverter a ordem ou ajustar */
+        /* Aqui, apenas ajustamos o padding */
+        padding: 2rem;
+    }
+
+    .form-section {
+        padding: 2rem;
+    }
+
+    .form-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .info-section h2 {
+        font-size: 1.6rem;
+    }
+}
