@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- O caminho do favicon é relativo à localização deste arquivo (pages/quiz/) -->
+    <link rel="shortcut icon" href="../../../assets/logo-site/logo-iniciais.png" type="image/x-icon">
+
+    <!-- Importação das Fontes (Inter e Lexend Giga) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lexend+Giga:wght@100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- Importação dos Ícones (Bootstrap Icons) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../../../styles/styleGlobal.css">
+    <link rel="stylesheet" href="./questionario3.css">    
+
+    <title>EasyWallet - Perfil de Investidor (3/4)</title>
+</head>
+
+<body>
+
+    <!-- --- Header Simplificado (Quiz) --- -->
+    <header class="header-quiz">
+        <div class="container">
+            <!-- O caminho da imagem é relativo à localização deste arquivo (pages/quiz/) -->
+            <a href="../../index.html" class="logo-quiz">
+                <img src="../../../assets/logo-site/logo-carteira.png" alt="Logo EasyWallet">
+                <p class="nome-logo">EasyWallet</p>
+            </a>
+        </div>
+    </header>
+
+    <!-- --- Conteúdo Principal (Quiz) --- -->
+    <main>
+        <div class="container quiz-container">
+            <div class="quiz-content">
+
+                <!-- Pergunta (do Figma) -->
+                <h1 class="quiz-question">
+                    <strong>Pergunta 3:</strong> Você sabe o que é "diversificação" e como ela se aplica aos seus
+                    investimentos?
+                </h1>
+
+                <!-- Opções de Resposta (Seleção Única) -->
+                <div class="quiz-options">
+
+                    <button class="btn-answer-dark" data-value="1">
+                        Não sei o que significa ou sei muito pouco.
+                    </button>
+
+                    <button class="btn-answer-dark" data-value="2">
+                        Entendo o conceito, mas todos os meus investimentos são muito parecidos (ex: só tenho Tesouro
+                        Selic e CDB de um banco).
+                    </button>
+
+                    <button class="btn-answer-dark" data-value="3">
+                        Sim, busco ativamente distribuir meu dinheiro em diferentes tipos de investimentos (renda fixa e
+                        variável, setores diferentes) para diminuir os riscos.
+                    </button>
+
+                </div>
+
+                <!-- Navegação (do Figma) -->
+                <div class="quiz-nav">
+                    <!-- Botão Voltar -->
+                    <button class="btn-nav-arrow" id="btn-prev" aria-label="Pergunta Anterior">
+                        <i class="bi bi-arrow-left"></i>
+                    </button>
+                    <!-- Botão Avançar -->
+                    <button class="btn-nav-arrow" id="btn-next" aria-label="Próxima Pergunta">
+                        <i class="bi bi-arrow-right"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- --- Footer (Padrão) --- -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-links">
+                <!-- Caminhos relativos à localização deste arquivo (pages/quiz/) -->
+                <a href="../SobreNos/sobreNos.html">Sobre Nós</a>
+                <a href="#">Contato</a>
+                <a href="#">Privacidade</a>
+            </div>
+            <div class="footer-social">
+                <a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                <a href="#" aria-label="Discord"><i class="bi bi-discord"></i></a>
+            </div>
+            <div class="footer-copy">
+                Copyright @ EasyWallet 2025
+            </div>
+        </div>
+    </footer>
+    
+    <script src="./questionario3.js"></script>
+</body>
+
+</html>

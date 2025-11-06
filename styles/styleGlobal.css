@@ -65,7 +65,11 @@ ul {
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
-    
+}
+
+.nome-destaque {
+    color: var(--azul);
+    font-weight: bold;
 }
 
 .nav-container {
@@ -90,10 +94,6 @@ ul {
     /* Use a altura da imagem de logo que você enviou */
     height: 40px;
     margin-right: 0.75rem;
-    /* Inverte a cor se o logo for escuro em fundo escuro (opcional) */
-    filter: invert(1); 
-
-    
 }
 
 .nav-links {

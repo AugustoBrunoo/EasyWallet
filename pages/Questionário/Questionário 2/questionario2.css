@@ -1,0 +1,253 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--azul-marinho);
+    color: var(--branco-gelo);
+    line-height: 1.6;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
+/* --- Header Simplificado (Quiz) --- */
+
+.header-quiz {
+    background-color: var(--azul-marinho);
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(238, 238, 238, 0.1);
+    width: 100%;
+}
+
+.header-quiz .container {
+    display: flex;
+    justify-content: center;
+    /* Centraliza o logo, como pedido */
+    align-items: center;
+}
+
+.logo-quiz {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--branco-gelo);
+}
+
+.logo-quiz img {
+    height: 40px;
+    margin-right: 0.75rem;
+}
+
+/* --- Conteúdo Principal (Quiz) --- */
+
+main {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 0;
+}
+
+/* NOTA: Estas classes de quiz são específicas */
+.quiz-container {
+    width: 100%;
+}
+
+.quiz-content {
+    max-width: 800px;
+    /* Largura máxima para os botões de resposta */
+    margin: 0 auto;
+    text-align: center;
+}
+
+.quiz-question {
+    font-size: 1.75rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+    /* Menor margem para o subtítulo */
+}
+
+.quiz-question strong {
+    font-weight: 700;
+    /* "Pergunta 2:" em negrito */
+}
+
+.quiz-subtitle {
+    font-size: 1rem;
+    color: #c0c0c0;
+    /* Cor mais suave para o subtítulo */
+    margin-bottom: 3rem;
+    display: block;
+}
+
+.quiz-options {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    /* Espaçamento entre as opções */
+}
+
+/* Estilo para os botões de múltipla escolha */
+.btn-checkbox-answer {
+    display: flex;
+    align-items: center;
+    background-color: var(--azul-marinho);
+    /* Fundo escuro */
+    border: 2px solid var(--cinza);
+    /* Borda cinza */
+    color: var(--branco-gelo);
+    padding: 1.25rem 1.5rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    text-align: left;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+    width: 100%;
+}
+
+.btn-checkbox-answer:hover {
+    border-color: var(--azul);
+    /* Destaque no hover */
+}
+
+/* Esconde o checkbox real */
+.btn-checkbox-answer input[type="checkbox"] {
+    display: none;
+}
+
+/* Círculo customizado (ícone do checkbox) */
+.checkbox-icon {
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--branco-gelo);
+    border-radius: 50%;
+    margin-right: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: border-color 0.3s ease;
+}
+
+/* Bolinha interna (aparece quando selecionado) */
+.checkbox-icon::after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background-color: var(--azul);
+    border-radius: 50%;
+    display: block;
+    transform: scale(0);
+    transition: transform 0.2s ease;
+}
+
+.checkbox-text {
+    flex-grow: 1;
+}
+
+/* Estilos quando o checkbox está selecionado (via JS) */
+.btn-checkbox-answer.selected {
+    border-color: var(--azul);
+    /* Borda da caixa fica azul */
+}
+
+.btn-checkbox-answer.selected .checkbox-icon {
+    border-color: var(--azul);
+    /* Borda do círculo fica azul */
+}
+
+.btn-checkbox-answer.selected .checkbox-icon::after {
+    transform: scale(1);
+    /* Mostra a bolinha interna */
+}
+
+
+.quiz-nav {
+    display: flex;
+    justify-content: space-between;
+    /* Alinha botões nas pontas */
+    margin-top: 3rem;
+}
+
+.btn-nav-arrow {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--cinza);
+    color: var(--branco-gelo);
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 8px;
+    font-size: 2rem;
+    /* Tamanho do ícone */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-nav-arrow:hover {
+    background-color: #4a505a;
+    /* Mesmo hover do btn-login */
+    transform: scale(1.05);
+}
+
+/* --- Responsividade --- */
+
+/* Tablets e menores */
+@media (max-width: 992px) {
+    .quiz-content {
+        max-width: 600px;
+        /* Diminui um pouco a largura máxima */
+    }
+}
+
+/* Celulares */
+@media (max-width: 768px) {
+
+    /* --- INÍCIO: Trecho duplicado de styleGlobal.css --- */
+    .container {
+        padding: 0 1rem;
+        /* Menor padding lateral em celulares */
+    }
+
+    /* --- FIM: Trecho duplicado de styleGlobal.css --- */
+
+    /* NOTA: Estilos de Quiz Responsivos (Específicos) */
+    .quiz-question {
+        font-size: 1.25rem;
+        /* Ajusta o tamanho da fonte da pergunta */
+    }
+
+    .quiz-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 2rem;
+    }
+
+    .btn-checkbox-answer {
+        font-size: 0.9rem;
+        padding: 1rem;
+    }
+
+    .checkbox-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .checkbox-icon::after {
+        width: 10px;
+        height: 10px;
+    }
+
+    .quiz-nav {
+        margin-top: 2.5rem;
+    }
+
+    .btn-nav-arrow {
+        width: 50px;
+        height: 50px;
+        font-size: 1.75rem;
+    }
+
+}

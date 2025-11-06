@@ -80,6 +80,10 @@ body {
     margin-right: 0.5rem;
     width: 16px;
     height: 16px;
+
+    /* Fundo da cor do checkbox */
+    accent-color: var(--azul);
+    cursor: pointer;
 }
 
 .form-group-checkbox label {
@@ -99,8 +103,8 @@ body {
     padding: 0.8rem;
     border: none;
     border-radius: 6px;
-    background-color: #E9ECEF; /* Cor do botão do Figma */
-    color: #555;
+    background-color: var(--azul); /* Cor do botão do Figma */
+    color: white;
     font-weight: 700;
     font-size: 1.1rem;
     cursor: pointer;
@@ -108,7 +112,8 @@ body {
 }
 
 .btn-criar-conta:hover {
-    background-color: #DDE2E5; /* Um pouco mais escuro no hover */
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 173, 181, 0.3);
 }
 
 /* Link para Login */
@@ -150,13 +155,14 @@ body {
 
 /* Caixas de features (do Figma) */
 .feature-box {
-    background-color: #1ABC9C; /* Cor verde/teal do Figma */
+    background-color: var(--azul);
     color: #FFFFFF;
     padding: 1rem 1.25rem;
     margin-bottom: 1rem;
     border-radius: 8px;
     display: flex;
     align-items: center;
+    justify-content: center;
     font-size: 1.1rem;
     font-weight: 700;
 }

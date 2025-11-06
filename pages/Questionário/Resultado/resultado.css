@@ -1,0 +1,265 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--azul-marinho);
+    color: var(--branco-gelo);
+    line-height: 1.6;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- Header Simplificado (Quiz) --- */
+/* header específico para o Quiz */
+
+.header-quiz {
+    background-color: var(--azul-marinho);
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(238, 238, 238, 0.1);
+    width: 100%;
+}
+
+.header-quiz .container {
+    display: flex;
+    justify-content: center;
+    /* Centraliza o logo, como pedido */
+    align-items: center;
+}
+
+.logo-quiz {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--branco-gelo);
+}
+
+.logo-quiz img {
+    height: 40px;
+    margin-right: 0.75rem;
+}
+
+/* --- Conteúdo Principal (Resultado) --- */
+/* NOTA: Este 'main' é específico para esta página (com flex-grow)
+         * para fazer o layout do footer funcionar. 
+         * Recomendo manter.
+        */
+main {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 0;
+}
+
+/* NOTA: Estas classes de resultado são específicas */
+.result-container {
+    width: 100%;
+}
+
+.result-content {
+    max-width: 800px;
+    /* Largura máxima para o conteúdo */
+    margin: 0 auto;
+    text-align: left;
+    /* Alinhado à esquerda para legibilidade */
+}
+
+/* --- (INÍCIO) Animação de Fade-in Suave --- */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+        /* Faz o card subir levemente */
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- (FIM) Animação de Fade-in Suave --- */
+
+/* --- (NOVO) Aviso de Importação de Imagem --- */
+.result-info-notice {
+    display: flex;
+    align-items: flex-start;
+    /* Alinha o ícone com o topo do texto */
+    gap: 0.75rem;
+    /* 12px */
+    margin-top: 2.5rem;
+    /* Espaço acima */
+    color: #c0c0c0;
+    /* Tom de texto suave */
+}
+
+.result-info-notice i {
+    font-size: 1.1rem;
+    /* Tamanho do ícone */
+    color: var(--azul);
+    /* Cor do ícone */
+    flex-shrink: 0;
+    /* Impede o ícone de encolher */
+    margin-top: 0.2rem;
+    /* Alinhamento vertical */
+}
+
+.result-info-notice p {
+    font-size: 0.9rem;
+    /* Texto um pouco menor */
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+/* Destaque solicitado para o portal */
+.result-info-notice strong {
+    color: var(--azul);
+    font-weight: 600;
+}
+
+/* --- Fim do Novo Estilo --- */
+
+
+/* Card de Resultado */
+.result-card {
+    background-color: var(--cinza);
+    /* Fundo do card */
+    border-radius: 12px;
+    padding: 3rem;
+    border: 1px solid rgba(238, 238, 238, 0.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+
+    /* --- (APLICAÇÃO) Efeito Suave Adicionado --- */
+    /* Começa transparente para a animação */
+    opacity: 0;
+    /* Aplica a animação: nome | duração | curva | delay | preenchimento */
+    animation: fadeIn 0.7s ease-out 0.2s forwards;
+}
+
+.result-title {
+    font-size: 1.75rem;
+    font-weight: 400;
+    margin-bottom: 2.5rem;
+    line-height: 1.4;
+}
+
+/* Destaque para o nome do perfil */
+.result-title strong {
+    font-weight: 700;
+    color: var(--azul);
+    /* Cor de destaque */
+    display: block;
+    /* Quebra a linha se necessário */
+    font-size: 2.25rem;
+    /* Maior destaque */
+}
+
+.result-text {
+    font-size: 1.125rem;
+    color: #c0c0c0;
+    /* Tom mais suave */
+    margin-bottom: 2rem;
+}
+
+.result-text p {
+    margin-bottom: 1.5rem;
+}
+
+/* Destaque para as palavras-chave */
+.result-text strong {
+    color: var(--azul);
+    font-weight: 700;
+}
+
+.result-nav {
+    display: flex;
+    justify-content: flex-end;
+    /* Alinha o botão à direita */
+    margin-top: 3rem;
+}
+
+/* Botão estilizado como .btn-cta da home */
+.btn-dashboard {
+    display: inline-flex;
+    /* Para alinhar ícone e texto */
+    align-items: center;
+    gap: 0.75rem;
+    background-color: var(--azul);
+    color: var(--branco-gelo);
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.btn-dashboard i {
+    font-size: 1.25rem;
+}
+
+.btn-dashboard:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 173, 181, 0.3);
+    background-color: #00c5cf;
+    /* Tom mais claro no hover */
+}
+
+/* --- Responsividade --- */
+
+/* Tablets e menores */
+@media (max-width: 992px) {
+    .result-content {
+        max-width: 600px;
+    }
+
+    .result-card {
+        padding: 2.5rem;
+    }
+}
+
+/* Celulares */
+@media (max-width: 768px) {
+
+    /* --- INÍCIO: Trecho duplicado de styleGlobal.css --- */
+    .container {
+        padding: 0 1rem;
+        /* Menor padding lateral em celulares */
+    }
+
+    /* --- FIM: Trecho duplicado de styleGlobal.css --- */
+
+    /* NOTA: Estilos de Resultado Responsivos (Específicos) */
+    .result-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .result-title {
+        font-size: 1.3rem;
+        margin-bottom: 2rem;
+    }
+
+    .result-title strong {
+        font-size: 1.75rem;
+        /* Tamanho ajustado */
+    }
+
+    .result-text {
+        font-size: 1rem;
+    }
+
+    .btn-dashboard {
+        width: 100%;
+        /* Botão ocupa largura total */
+        justify-content: center;
+        /* Centraliza texto e ícone */
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    .result-nav {
+        margin-top: 2.5rem;
+    }
+}

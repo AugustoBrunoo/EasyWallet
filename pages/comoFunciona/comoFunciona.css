@@ -1,0 +1,347 @@
+/* --- Seção Features (Estilo da Home, pode ser removido se não usado) --- */
+.features {
+    padding: 6rem 0;
+    background-color: var(--cinza);
+}
+
+.features-title {
+    text-align: center;
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.features-title::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 4px;
+    background-color: var(--azul);
+    margin: 0.75rem auto 4rem;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+}
+
+.feature-card {
+    background-color: var(--branco-gelo);
+    color: var(--azul-marinho);
+    padding: 2.5rem 2rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card i {
+    font-size: 3rem;
+    color: var(--azul);
+    margin-bottom: 1.5rem;
+}
+
+.feature-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.feature-card p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #333;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+
+/* --- Cabeçalho da Página --- */
+.how-it-works-header {
+    background-color: var(--azul-marinho);
+    text-align: center;
+    padding: 4rem 0;
+}
+
+.how-it-works-header h1 {
+    font-size: 2.75rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--branco-gelo);
+}
+
+.how-it-works-header p {
+    font-size: 1.25rem;
+    color: var(--azul);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* --- Seção da Linha do Tempo --- */
+.timeline-section {
+    padding: 6rem 0;
+    /* Usa o cinza do 'features' da home */
+    background-color: var(--cinza);
+}
+
+.timeline-container {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* A linha central da timeline */
+.timeline-container::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: var(--azul);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+    border-radius: 3px;
+    z-index: 1;
+}
+
+/* Cada item (passo) na timeline */
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+    z-index: 2;
+}
+
+/* Ícone na linha do tempo */
+.timeline-icon {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    right: -25px;
+    background-color: var(--branco-gelo);
+    border: 4px solid var(--azul);
+    top: 30px;
+    border-radius: 50%;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.timeline-icon i {
+    font-size: 1.5rem;
+    color: var(--azul-marinho);
+}
+
+/* Alinha o item da esquerda */
+.timeline-item:nth-child(odd) {
+    left: 0;
+    padding-right: 70px;
+    /* Espaço para o ícone */
+}
+
+/* Alinha o item da direita */
+.timeline-item:nth-child(even) {
+    left: 50%;
+    padding-left: 70px;
+    /* Espaço para o ícone */
+}
+
+/* Ajusta o ícone para os itens da direita */
+.timeline-item:nth-child(even) .timeline-icon {
+    left: -25px;
+}
+
+/* Card de conteúdo */
+.timeline-content {
+    padding: 2rem 2.5rem;
+    background-color: var(--branco-gelo);
+    color: var(--azul-marinho);
+    position: relative;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.timeline-content h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--azul);
+    margin-bottom: 0.75rem;
+}
+
+.timeline-content p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #333;
+    margin-bottom: 0;
+}
+
+/* --- Seção de Convite --- */
+.invite-section {
+    padding: 6rem 0;
+    background-color: var(--azul-marinho);
+    border-top: 1px solid rgba(238, 238, 238, 0.1);
+}
+
+.invite-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 4rem;
+}
+
+.invite-text h2 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--branco-gelo);
+}
+
+.invite-text p {
+    font-size: 1.125rem;
+    color: #c0c0c0;
+    margin-bottom: 2.5rem;
+    max-width: 500px;
+}
+
+/* Estilo customizado para o botão de copiar, aproveitando .btn-cta */
+#copy-link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.1rem;
+    /* Transição suave para a mudança de cor */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Estado 'copiado' do botão */
+#copy-link-btn.copied {
+    background-color: #008f97;
+    /* Um tom de azul um pouco diferente */
+    box-shadow: none;
+    transform: translateY(-1px);
+}
+
+/* Feedback de cópia */
+.copy-feedback {
+    display: block;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: var(--azul);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.copy-feedback.show {
+    opacity: 1;
+}
+
+.copy-feedback.error {
+    color: #e74c3c;
+    /* Cor de erro */
+}
+
+
+.invite-qr {
+    text-align: center;
+}
+
+.invite-qr p {
+    font-size: 1.125rem;
+    color: #c0c0c0;
+    margin-bottom: 1.5rem;
+}
+
+/* Placeholder do QR Code */
+.qr-code {
+    width: 250px;
+    height: 250px;
+    background-color: var(--branco-gelo);
+    border: 4px dashed var(--azul);
+    border-radius: 12px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--cinza);
+}
+
+/* --- Responsividade (Específica da Página) --- */
+
+/* Tablets */
+@media (max-width: 992px) {
+    .invite-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .invite-text p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .invite-qr {
+        margin-top: 3rem;
+    }
+}
+
+/* Celulares */
+@media (max-width: 768px) {
+    .how-it-works-header h1 {
+        font-size: 2.25rem;
+    }
+
+    .how-it-works-header p {
+        font-size: 1.125rem;
+    }
+
+    /* Ajusta a timeline para mobile */
+    .timeline-container::after {
+        left: 31px;
+        /* Move a linha para a esquerda */
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+
+    /* Todos os itens ficam à direita da linha */
+    .timeline-item:nth-child(odd) {
+        left: 0;
+    }
+
+    .timeline-item:nth-child(even) {
+        left: 0;
+        padding-left: 70px;
+        /* Mantém o padding */
+    }
+
+    /* Move todos os ícones para a esquerda */
+    .timeline-icon {
+        left: 6px;
+    }
+
+    /* Ajusta o ícone para os itens da direita (agora à esquerda) */
+    .timeline-item:nth-child(even) .timeline-icon {
+        left: 6px;
+    }
+
+    .timeline-content {
+        padding: 1.5rem;
+    }
+}

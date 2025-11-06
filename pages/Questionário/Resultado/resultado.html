@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- O caminho do favicon é relativo à localização deste arquivo (pages/quiz/) -->
+    <link rel="shortcut icon" href="../../../assets/logo-site/logo-iniciais.png" type="image/x-icon">
+
+    <!-- Importação das Fontes (Inter e Lexend Giga) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lexend+Giga:wght@100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- Importação dos Ícones (Bootstrap Icons) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../../../styles/styleGlobal.css">
+    <link rel="stylesheet" href="./resultado.css">
+
+    <title>EasyWallet - Seu Perfil</title>
+</head>
+
+<body>
+
+    <!-- --- Header Simplificado (Quiz) --- -->
+    <header class="header-quiz">
+        <div class="container">
+            <!-- O caminho da imagem é relativo à localização deste arquivo (pages/quiz/) -->
+            <a href="../../../index.html" class="logo-quiz">
+                <img src="../../../assets/logo-site/logo-carteira.png" alt="Logo EasyWallet">
+                <p class="nome-logo">EasyWallet</p>
+            </a>
+        </div>
+    </header>
+
+    <!-- --- Conteúdo Principal (Resultado) --- -->
+    <main>
+        <div class="container result-container">
+            <div class="result-content">
+
+                <div class="result-card">
+                    <!-- Título (do Figma) -->
+                    <h1 class="result-title">
+                        Pierre Chapetta, seu perfil é:
+                        <strong>Explorador Financeiro</strong>
+                    </h1>
+
+                    <!-- Textos (do Figma) -->
+                    <div class="result-text">
+                        <p>
+                            Identificamos que você está no ponto de partida da sua jornada financeira,
+                            e isso é excelente! O passo mais importante é começar, e você acaba de dar esse passo.
+                        </p>
+                        <p>
+                            Nosso objetivo é mostrar que organizar suas finanças e começar a investir não
+                            precisa ser complicado. Vamos construir juntos uma base sólida para que seu
+                            dinheiro comece a trabalhar para você, e não o contrário.
+                        </p>
+                        <p>
+                            Nossa plataforma irá se transformar em seu guia pessoal para os primeiros passos.
+                            O foco total será em criar <strong>confiança e clareza</strong>.
+                        </p>
+                    </div>
+
+                    <!-- --- Aviso de Informação --- -->
+                    <div class="result-info-notice">
+                        <i class="bi bi-info-circle-fill"></i>
+                        <p>
+                            Sua imagem foi importada diretamente do <strong>Portal ID Unirio</strong>, A mesma utilizada na carteira de estudante
+                        </p>
+                    </div>
+
+                    <!-- Navegação (do Figma) -->
+                    <div class="result-nav">
+                        <!-- Botão para Dashboard -->
+                        <a href="../../perfilLogado/perfilLogado.html" class="btn-dashboard">
+                            Ir para o dashboard
+                            <i class="bi bi-arrow-right-short"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- --- Footer (Padrão) --- -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-links">
+                <!-- Caminhos relativos à localização deste arquivo (pages/quiz/) -->
+                <a href="../SobreNos/sobreNos.html">Sobre Nós</a>
+                <a href="#">Contato</a>
+                <a href="#">Privacidade</a>
+            </div>
+            <div class="footer-social">
+                <a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                <a href="#" aria-label="Discord"><i class="bi bi-discord"></i></a>
+            </div>
+            <div class="footer-copy">
+                Copyright @ EasyWallet 2025
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,546 @@
+.header {
+    background-color: var(--azul-marinho);
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(238, 238, 238, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--branco-gelo);
+    flex-shrink: 0;
+}
+
+.logo img {
+    height: 40px;
+    margin-right: 0.75rem;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.nav-links ul {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links li {
+    margin: 0 1.5rem;
+}
+
+.nav-links a {
+    color: var(--branco-gelo);
+    font-weight: 400;
+    padding-bottom: 0.25rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--azul);
+}
+
+/* O .btn-login foi removido e substituído por .user-profile */
+.user-profile {
+    display: flex;
+    align-items: center;
+    background-color: var(--cinza);
+    border-radius: 50px;
+    /* Formato de pílula */
+    padding: 5px 15px 5px 5px;
+    /* margin-left: 2.5rem;  <-- REMOVIDO para space-between */
+    flex-shrink: 0;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.user-profile:hover {
+    background-color: #4a505a;
+}
+
+.user-profile img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+    background-color: var(--azul-marinho);
+    /* Fundo para placeholder */
+}
+
+.user-profile span {
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+
+
+/* ==========================================================================
+           NOVOS ESTILOS - PÁGINA DASHBOARD
+        ==========================================================================
+        */
+
+main {
+    flex-grow: 1;
+    /* O fundo do main é o mesmo do body, os cards terão cor */
+    padding: 3rem 0;
+}
+
+.nome-destaque {
+    color: var(--azul);
+    font-weight: bold;
+}
+
+.dashboard-header {
+    margin-bottom: 2rem;
+}
+
+.dashboard-header h1 {
+    font-size: 2.75rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.dashboard-welcome {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.dashboard-welcome p {
+    font-size: 1.125rem;
+    color: #c0c0c0;
+}
+
+.sidebar-toggle {
+    background-color: var(--cinza);
+    border: none;
+    color: var(--branco-gelo);
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.sidebar-toggle i {
+    font-size: 1.2rem;
+}
+
+/* Layout do Grid */
+.dashboard-grid-top {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    /* 1/3 para gastos, 2/3 para lembretes */
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Estilo de Card Padrão */
+.dashboard-card {
+    background-color: var(--cinza);
+    border-radius: 12px;
+    padding: 2rem 2.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.card-header h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+
+.filter-select {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--azul-marinho);
+    color: var(--branco-gelo);
+    border: 1px solid #555;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.btn-full-width {
+    font-family: 'Inter', sans-serif;
+    width: 100%;
+    background-color: var(--azul-marinho);
+    color: var(--branco-gelo);
+    border: none;
+    padding: 0.75rem;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 1.5rem;
+}
+
+.btn-full-width:hover {
+    background-color: #2a3038;
+}
+
+.chart-placeholder {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 250px;
+}
+
+.chart-placeholder img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    background-color: var(--azul-marinho);
+    opacity: 0.7;
+}
+
+/* Card: Lembretes */
+.lembretes-list {
+    flex-grow: 1;
+    max-height: 250px;
+    /* Altura do Figma */
+    overflow-y: auto;
+    padding-right: 0.5rem;
+    /* Espaço para scrollbar */
+}
+
+.lembretes-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--azul-marinho);
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+}
+
+.lembretes-actions button {
+    background: none;
+    border: none;
+    color: var(--branco-gelo);
+    cursor: pointer;
+    margin-left: 0.5rem;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.lembretes-actions button:hover {
+    color: var(--azul);
+}
+
+.lembretes-actions .btn-delete:hover {
+    color: #ff6b6b;
+    /* Vermelho para excluir */
+}
+
+.lembretes-form {
+    display: flex;
+    margin-top: 1.5rem;
+    border-top: 1px solid var(--azul-marinho);
+    padding-top: 1.5rem;
+    gap: 1rem;
+}
+
+.lembretes-form input[type="text"] {
+    flex-grow: 1;
+    background-color: var(--azul-marinho);
+    border: 1px solid #555;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    color: var(--branco-gelo);
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+}
+
+.lembretes-form input[type="text"]:focus {
+    outline: none;
+    border-color: var(--azul);
+}
+
+.lembretes-form button {
+    background-color: var(--azul);
+    border: none;
+    color: var(--branco-gelo);
+    font-weight: 700;
+    padding: 0 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.lembretes-form button:hover {
+    transform: scale(1.05);
+}
+
+/* Card: Patrimônio Acumulado */
+.chart-patrimonio {
+    margin-bottom: 2rem;
+}
+
+.chart-tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    border-top: 1px solid var(--azul-marinho);
+    padding-top: 1.5rem;
+}
+
+.chart-tabs button {
+    background: none;
+    border: none;
+    color: #888;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    padding: 0.5rem 1rem;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.chart-tabs button.active {
+    color: var(--azul);
+    border-bottom-color: var(--azul);
+}
+
+.alert-box {
+    background-color: rgba(0, 173, 181, 0.1);
+    /* Fundo azul claro */
+    border: 1px solid var(--azul);
+    color: var(--branco-gelo);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.95rem;
+}
+
+.alert-box i {
+    font-size: 1.25rem;
+    margin-right: 0.75rem;
+    color: var(--azul);
+}
+
+.alert-box button {
+    background: none;
+    border: none;
+    color: var(--branco-gelo);
+    font-size: 1.5rem;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+/* Card: Investimentos */
+.chart-investimentos {
+    margin-bottom: 2rem;
+}
+
+/* Botão Editar Dashboard */
+.edit-dashboard-wrapper {
+    text-align: center;
+    /* Centraliza o botão */
+    margin-top: 2rem;
+    /* Espaçamento do último card */
+    padding-bottom: 1rem;
+    /* Espaçamento antes do footer */
+}
+
+.btn-edit-dashboard {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--cinza);
+    color: var(--branco-gelo);
+    border: 1px solid var(--azul);
+    border-radius: 50px;
+    /* Formato de pílula elegante */
+    padding: 0.75rem 1.75rem;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-edit-dashboard:hover {
+    background-color: var(--azul);
+    color: var(--branco-gelo);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 173, 181, 0.3);
+}
+
+.btn-edit-dashboard i {
+    font-size: 1.2rem;
+}
+
+
+
+
+/* ==========================================================================
+           TRECHO REPETIDO - RESPONSIVIDADE (Base - Modificado)
+           (Para mover para seu arquivo CSS externo)
+        ==========================================================================
+        */
+
+@media (max-width: 768px) {
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-links {
+        order: 2;
+    }
+
+    .footer-social {
+        order: 1;
+    }
+
+    .footer-copy {
+        order: 3;
+    }
+}
+
+
+/* ==========================================================================
+           FIM DO TRECHO REPETIDO - RESPONSIVIDADE (Base)
+        ==========================================================================
+        */
+
+/* --- RESPONSIVIDADE (Específica da Página Dashboard) --- */
+
+@media (max-width: 992px) {
+
+    /* Em tablets, o grid superior vira coluna única */
+    .dashboard-grid-top {
+        grid-template-columns: 1fr;
+    }
+
+    /* O card de lembretes vem primeiro (opcional, mas comum) */
+    .card-gastos {
+        order: 2;
+    }
+
+    .card-lembretes {
+        order: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    main {
+        padding: 1.5rem 0;
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+
+    .dashboard-header h1 {
+        font-size: 2rem;
+    }
+
+    .dashboard-welcome {
+        flex-wrap: wrap;
+    }
+
+    .dashboard-card {
+        padding: 1.5rem;
+    }
+
+    .card-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .lembretes-form {
+        flex-direction: column;
+    }
+
+    .lembretes-form button {
+        padding: 0.75rem;
+    }
+
+    .chart-tabs {
+        gap: 0.5rem;
+    }
+
+    .chart-tabs button {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* ==========================================================================
+   NOVO AJUSTE - Responsividade do Header para Telas Pequenas
+==========================================================================
+*/
+@media (max-width: 430px) {
+
+    /* AJUSTE AQUI: Reduz o padding do container no header */
+    .header .container {
+        padding: 0 1rem;
+    }
+
+    /* AJUSTE AQUI: Reduz o tamanho da fonte do logo */
+    .logo {
+        font-size: 1.1rem;
+    }
+
+    /* AJUSTE AQUI: Reduz a margem da imagem do logo */
+    .logo img {
+        margin-right: 0.5rem;
+    }
+
+    /* AJUSTE AQUI: Transforma o perfil em um círculo centrado */
+    .user-profile {
+        padding: 5px;
+        /* Padding igual para centralizar */
+        width: 45px;
+        /* Força a largura = altura (35px img + 2*5px pad) */
+        height: 45px;
+        /* Força a altura = altura (35px img + 2*5px pad) */
+        justify-content: center;
+        /* Centraliza a imagem */
+    }
+
+    /* AJUSTE AQUI: Remove a margem da imagem do perfil */
+    .user-profile img {
+        margin-right: 0;
+    }
+
+    /* AJUSTE AQUI: Esconde o texto "Olá, [Nome]!" em telas muito pequenas */
+    .user-profile span {
+        display: none;
+    }
+}

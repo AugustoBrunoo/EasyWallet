@@ -1,0 +1,221 @@
+/* --- Header Simplificado (Quiz) --- */
+.header-quiz {
+    background-color: var(--azul-marinho);
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(238, 238, 238, 0.1);
+    width: 100%;
+}
+
+.header-quiz .container {
+    display: flex;
+    justify-content: center;
+    /* Centraliza o logo, como pedido */
+    align-items: center;
+}
+
+.logo-quiz {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--branco-gelo);
+}
+
+.bi-question-circle-fill {
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.bi-question-circle-fill:hover {
+    color: var(--branco-gelo);
+    transition: 0.5s;
+}
+
+.logo-quiz img {
+    height: 40px;
+    margin-right: 0.75rem;
+}
+
+
+/* --- Conteúdo Principal (Quiz) --- */
+
+main {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 0;
+}
+
+.quiz-container {
+    width: 100%;
+}
+
+.quiz-content {
+    max-width: 800px;
+    /* Largura máxima para os botões de resposta */
+    margin: 0 auto;
+    text-align: center;
+}
+
+.quiz-greeting {
+    background-color: var(--cinza);
+    color: var(--branco-gelo);
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    display: inline-block;
+    /* Para não ocupar a largura total */
+    margin-bottom: 2.5rem;
+}
+
+.quiz-intro {
+    font-size: 1.25rem;
+    color: var(--branco-gelo);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    /* Para quebra de linha em telas menores */
+}
+
+.quiz-intro i {
+    font-size: 1.5rem;
+    color: var(--azul);
+    /* Dando um destaque para o ícone */
+}
+
+.quiz-question {
+    font-size: 1.75rem;
+    font-weight: 400;
+    margin-bottom: 3rem;
+}
+
+.quiz-question strong {
+    font-weight: 700;
+    /* "Pergunta 1:" em negrito */
+}
+
+.quiz-options {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.btn-answer {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--azul);
+    color: var(--branco-gelo);
+    padding: 1.5rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    width: 100%;
+}
+
+.btn-answer:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 173, 181, 0.3);
+    background-color: #00c5cf;
+    /* Um tom levemente mais claro no hover */
+}
+
+/* Estilo para quando o botão for selecionado (via JS, por exemplo) */
+.btn-answer.selected {
+    background-color: var(--cinza);
+    box-shadow: 0 0 10px rgba(0, 173, 181, 0.5);
+    transform: translateY(-3px);
+    border: 2px solid var(--azul);
+}
+
+.quiz-nav {
+    display: flex;
+    justify-content: flex-end;
+    /* Alinha o botão à direita */
+    margin-top: 3rem;
+}
+
+.btn-next {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--cinza);
+    color: var(--branco-gelo);
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 8px;
+    font-size: 2rem;
+    /* Tamanho do ícone */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-next:hover {
+    background-color: #4a505a;
+    /* Mesmo hover do btn-login */
+    transform: scale(1.05);
+}
+
+
+/* --- Responsividade --- */
+
+/* Tablets e menores */
+@media (max-width: 992px) {
+    .quiz-content {
+        max-width: 600px;
+        /* Diminui um pouco a largura máxima */
+    }
+}
+
+/* Celulares */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+        /* Menor padding lateral em celulares */
+    }
+
+    .quiz-greeting {
+        font-size: 1.25rem;
+        padding: 0.75rem 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .quiz-intro {
+        font-size: 1rem;
+    }
+
+    .quiz-intro i {
+        font-size: 1.25rem;
+    }
+
+    .quiz-question {
+        font-size: 1.25rem;
+        /* Ajusta o tamanho da fonte da pergunta */
+        margin-bottom: 2rem;
+    }
+
+    .btn-answer {
+        font-size: 1rem;
+        /* Texto menor nos botões */
+        padding: 1.25rem 1rem;
+    }
+
+    .quiz-nav {
+        margin-top: 2.5rem;
+    }
+
+    .btn-next {
+        width: 50px;
+        height: 50px;
+        font-size: 1.75rem;
+    }
+}

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- O caminho do favicon é relativo à localização deste arquivo (pages/quiz/) -->
+    <link rel="shortcut icon" href="../../../assets/logo-site/logo-iniciais.png" type="image/x-icon">
+
+    <!-- Importação das Fontes (Inter e Lexend Giga) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lexend+Giga:wght@100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- Importação dos Ícones (Bootstrap Icons) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link rel="stylesheet" href="../../../styles/styleGlobal.css">
+    <link rel="stylesheet" href="./questionario1.css">
+    <title>EasyWallet - Perfil de Investidor (1/4)</title>
+
+</head>
+
+<body>
+
+    <!-- --- Header Simplificado (Quiz) --- -->
+    <header class="header-quiz">
+        <div class="container">
+            <!-- O link do logo volta para a página inicial -->
+            <!-- O caminho da imagem é relativo à localização deste arquivo (pages/quiz/) -->
+            <a href="../../index.html" class="logo-quiz">
+                <img src="../../../assets/logo-site/logo-carteira.png" alt="Logo EasyWallet">
+                <p class="nome-logo">EasyWallet</p>
+            </a>
+        </div>
+    </header>
+
+    <!-- --- Conteúdo Principal (Quiz) --- -->
+    <main>
+        <div class="container quiz-container">
+            <div class="quiz-content">
+
+                <!-- Saudação (do Figma) -->
+                <div class="quiz-greeting">
+                    Olá, Pierre!
+                </div>
+
+                <!-- Intro da Pergunta (do Figma) -->
+                <p class="quiz-intro">
+                    Antes de começar, precisamos saber mais sobre você:
+                    <i class="bi bi-question-circle-fill" aria-label="Informação"></i>
+                </p>
+
+                <!-- Pergunta (do Figma) -->
+                <h1 class="quiz-question">
+                    <strong>Pergunta 1:</strong> Qual destas frases descreve melhor sua relação com o dinheiro hoje?
+                </h1>
+
+                <!-- Opções de Resposta (do Figma) -->
+                <div class="quiz-options">
+                    <button class="btn-answer" data-value="1">
+                        Ainda não consigo poupar ou investir.
+                    </button>
+                    <button class="btn-answer" data-value="2">
+                        Guardo dinheiro, mas deixo tudo na conta corrente.
+                    </button>
+                    <button class="btn-answer" data-value="3">
+                        Já invisto uma parte do meu dinheiro em produtos além da poupança.
+                    </button>
+                </div>
+
+                <!-- Navegação (do Figma) -->
+                <div class="quiz-nav">
+                    <a href="../Questionário 2/questionario2.html" class="btn-next" aria-label="Próxima Pergunta">
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- --- Footer (Padrão) --- -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-links">
+                <!-- Caminhos relativos à localização deste arquivo (pages/quiz/) -->
+                <a href="../SobreNos/sobreNos.html">Sobre Nós</a>
+                <a href="#">Contato</a>
+                <a href="#">Privacidade</a>
+            </div>
+            <div class="footer-social">
+                <a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                <a href="#" aria-label="Discord"><i class="bi bi-discord"></i></a>
+            </div>
+            <div class="footer-copy">
+                Copyright @ EasyWallet 2025
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Script simples para lógica de seleção de resposta
+        document.addEventListener('DOMContentLoaded', () => {
+            const answerButtons = document.querySelectorAll('.btn-answer');
+            const nextButton = document.querySelector('.btn-next');
+            let selectedValue = null;
+
+            answerButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove a classe 'selected' de todos os botões
+                    answerButtons.forEach(btn => btn.classList.remove('selected'));
+
+                    // Adiciona a classe 'selected' apenas ao botão clicado
+                    button.classList.add('selected');
+
+                    // Armazena o valor selecionado (do atributo data-value)
+                    selectedValue = button.dataset.value;
+
+                    // Opcional: Habilita o botão 'próximo'
+                    // nextButton.disabled = false; 
+                });
+            });
+
+            nextButton.addEventListener('click', () => {
+                if (selectedValue) {
+                    console.log('Valor selecionado:', selectedValue);
+                    // Lógica para ir para a próxima página
+                    // window.location.href = './pergunta-2.html'; // Exemplo
+                } else {
+                    // Opcional: Avisar o usuário para selecionar uma opção
+                    console.log('Por favor, selecione uma opção.');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
