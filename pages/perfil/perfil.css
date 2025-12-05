@@ -1,0 +1,408 @@
+/* ==========================================================================
+   3. ESTILOS ESPECÍFICOS DA PÁGINA "MEU PERFIL" (perfil.css)
+========================================================================== 
+*/
+
+.profile-container {
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+}
+
+/* Link de Voltar */
+.back-link {
+    margin-bottom: 1.5rem;
+}
+
+.back-link a {
+    color: #c0c0c0;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.back-link a:hover {
+    color: var(--azul);
+}
+
+/* Grid Principal */
+.profile-grid {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+/* Cards Base */
+.profile-card {
+    background-color: var(--cinza);
+    border-radius: 12px;
+    padding: 2.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* --- Esquerda: Identidade --- */
+.identity-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.profile-avatar-large {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin-bottom: 1.5rem;
+}
+
+.profile-avatar-large img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--azul-marinho);
+    box-shadow: 0 0 0 2px var(--azul);
+}
+
+.btn-edit-photo {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background-color: var(--azul);
+    color: var(--branco-gelo);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    transition: transform 0.2s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.btn-edit-photo:hover {
+    transform: scale(1.1);
+}
+
+.profile-name {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    color: var(--branco-gelo);
+}
+
+.profile-email {
+    color: #c0c0c0;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+.profile-badge {
+    background-color: rgba(0, 173, 181, 0.15);
+    color: var(--azul);
+    padding: 0.5rem 1.25rem;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 2.5rem;
+    border: 1px solid rgba(0, 173, 181, 0.3);
+}
+
+.profile-actions {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: auto;
+}
+
+.btn-action {
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    border: none;
+    text-decoration: none;
+}
+
+.btn-edit {
+    background-color: var(--azul-marinho);
+    color: var(--branco-gelo);
+    border: 1px solid transparent;
+}
+
+.btn-edit:hover {
+    background-color: #2c3440;
+    border-color: #555;
+    transform: translateY(-2px);
+}
+
+.btn-logout {
+    background-color: transparent;
+    border: 1px solid #ff6b6b;
+    color: #ff6b6b;
+}
+
+.btn-logout:hover {
+    background-color: #ff6b6b;
+    color: #fff;
+}
+
+/* --- Direita: Gamificação --- */
+.card-header-simple {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+}
+
+.card-header-simple h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.trophy-icon {
+    font-size: 2rem;
+    color: #FFD700;
+    filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.3));
+}
+
+.level-info {
+    margin-bottom: 2rem;
+}
+
+.current-level {
+    color: var(--azul);
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.25rem;
+}
+
+.level-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--branco-gelo);
+    font-family: 'Lexend Giga', sans-serif;
+    line-height: 1.2;
+}
+
+/* Barra de XP */
+.xp-bar-container {
+    background-color: var(--azul-marinho);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 2.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.xp-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+    color: #c0c0c0;
+    font-weight: 600;
+}
+
+.progress-bar-track {
+    width: 100%;
+    height: 12px;
+    background-color: #4a505a;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--azul) 0%, #00e5ff 100%);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 173, 181, 0.5);
+}
+
+.motivation-text {
+    font-size: 0.95rem;
+    color: var(--branco-gelo);
+}
+
+.motivation-text strong {
+    color: var(--azul);
+}
+
+.motivation-text em {
+    color: #FFD700;
+    font-style: normal;
+    font-weight: bold;
+}
+
+/* Novo Botão de Recompensas */
+.btn-view-rewards {
+    background: transparent;
+    border: 1px solid var(--azul);
+    color: var(--azul);
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+    /* Estilo pílula */
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    /* Espaço para o texto acima */
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.btn-view-rewards:hover {
+    background-color: var(--azul);
+    color: var(--branco-gelo);
+    box-shadow: 0 0 15px rgba(0, 173, 181, 0.4);
+    transform: translateY(-2px);
+}
+
+.btn-view-rewards i {
+    font-size: 1.1rem;
+}
+
+/* Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.stat-item {
+    background-color: var(--azul-marinho);
+    padding: 1.5rem;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.75rem;
+    transition: transform 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.stat-item:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.stat-icon {
+    font-size: 2rem;
+}
+
+.color-blue {
+    color: var(--azul);
+}
+
+.color-green {
+    color: #00b894;
+}
+
+.color-purple {
+    color: #a29bfe;
+}
+
+.stat-text strong {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--branco-gelo);
+}
+
+.stat-text span {
+    font-size: 0.85rem;
+    color: #c0c0c0;
+}
+
+/* Responsividade Específica */
+@media (max-width: 992px) {
+    .profile-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .identity-card {
+        flex-direction: row;
+        text-align: left;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .profile-avatar-large {
+        margin-bottom: 0;
+        width: 120px;
+        height: 120px;
+        flex-shrink: 0;
+    }
+
+    .profile-actions {
+        margin-left: auto;
+        width: auto;
+        margin-top: 0;
+    }
+
+    .profile-badge {
+        margin-bottom: 0;
+    }
+
+    .btn-action {
+        width: auto;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .identity-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .profile-actions {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .btn-action {
+        width: 100%;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .level-title {
+        font-size: 1.5rem;
+    }
+
+    .profile-container {
+        padding: 1rem 1rem 3rem 1rem;
+    }
+}

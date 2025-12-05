@@ -1,0 +1,128 @@
+/* ==========================================================================
+           [NOVO] CSS ESPECÍFICO DA PÁGINA CONTATO
+           Adicione isso em um arquivo contato.css ou no head desta página
+        ========================================================================== 
+        */
+
+.contact-hero {
+    padding: 4rem 0 2rem;
+    text-align: center;
+}
+
+.contact-hero h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--branco-gelo);
+}
+
+.contact-hero p {
+    font-size: 1.1rem;
+    color: #c0c0c0;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Grid de Opções */
+.contact-options-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    max-width: 1000px;
+    margin: 2rem auto 4rem;
+}
+
+/* Estilo dos Cards de Contato */
+.contact-card {
+    background-color: var(--cinza);
+    border-radius: 16px;
+    padding: 3rem 2rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    /* Garante altura igual */
+}
+
+.contact-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    border-color: rgba(0, 173, 181, 0.3);
+    /* Borda sutil azul no hover */
+}
+
+/* Ícone do Card */
+.card-icon-wrapper {
+    background-color: rgba(0, 173, 181, 0.1);
+    /* Fundo azul transparente */
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    color: var(--azul);
+    font-size: 2.5rem;
+}
+
+.contact-card h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--branco-gelo);
+}
+
+.contact-card p {
+    font-size: 1rem;
+    color: #c0c0c0;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    flex-grow: 1;
+    /* Empurra o botão para baixo */
+}
+
+/* Botões Estilizados */
+.btn-contact {
+    font-family: 'Inter', sans-serif;
+    background-color: transparent;
+    border: 2px solid var(--azul);
+    color: var(--azul);
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    /* Formato Pílula */
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+}
+
+.btn-contact:hover {
+    background-color: var(--azul);
+    color: var(--branco-gelo);
+    box-shadow: 0 0 15px rgba(0, 173, 181, 0.4);
+}
+
+.btn-contact i {
+    font-size: 1.2rem;
+}
+
+/* Responsividade da Página Contato */
+@media (max-width: 768px) {
+    .contact-options-grid {
+        grid-template-columns: 1fr;
+        /* Um card por linha */
+        padding: 0 1rem;
+    }
+
+    .contact-hero h1 {
+        font-size: 2rem;
+    }
+}
