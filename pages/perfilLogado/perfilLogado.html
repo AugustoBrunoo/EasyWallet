@@ -16,6 +16,9 @@
     <!-- Importação dos Ícones (Bootstrap Icons) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <!-- Estilização -->
     <link rel="stylesheet" href="../../styles/styleGlobal.css">
     <link rel="stylesheet" href="./perfilLogado.css">
@@ -24,51 +27,22 @@
 
 <body>
 
-    <!-- 
-        ==========================================================================
-           HEADER (Modificado para Dashboard)
-        ==========================================================================
-    -->
     <header class="header">
         <div class="container nav-container">
             <a href="../../index.html" class="logo">
                 <img src="../../assets/logo-site/logo-carteira2.png" alt="Logo EasyWallet">
                 <p class="nome-logo">EasyWallet</p>
             </a>
-
-            <!-- Menu para Desktop (REMOVIDO) -->
-            <!-- 
-            <nav class="nav-links" id="nav-menu">
-                ...
-            </nav> 
-            -->
-
-            <!-- Perfil do Usuário (Substitui o botão de Login) -->
-            <!-- Classe 'user-profile-desktop' removida para ser sempre visível -->
-            <!-- "https://placehold.co/40x40/EEEEEE/222831?text=User" -->
             <div class="user-profile">
                 <img src="../../assets/fotoLogado/fotoLogado2x.png" alt="Foto de Perfil">
                 <span>Olá, Pierre!</span>
             </div>
-
-            <!-- Botão de Menu Mobile (REMOVIDO) -->
-            <!-- 
-            <button class="menu-toggle" id="menu-toggle-btn" aria-label="Abrir menu">
-                ...
-            </button> 
-            -->
         </div>
     </header>
 
-    <!-- 
-        ==========================================================================
-           CONTEÚDO PRINCIPAL - DASHBOARD
-        ==========================================================================
-    -->
     <main>
         <div class="container dashboard-container">
 
-            <!-- Cabeçalho do Dashboard -->
             <header class="dashboard-header">
                 <h1>Dashboard</h1>
                 <div class="dashboard-welcome">
@@ -80,107 +54,88 @@
                 </div>
             </header>
 
-            <!-- Grid Superior: Gastos e Lembretes -->
             <section class="dashboard-grid-top">
 
-                <!-- Card: Gastos (Pizza) -->
+                <!-- CARD GASTOS -->
                 <div class="dashboard-card card-gastos">
                     <div class="card-header">
                         <h2>Gastos</h2>
                     </div>
                     <div class="chart-placeholder">
-                        <img src="https://placehold.co/400x300/393E46/EEEEEE?text=Gráfico+de+Gastos+(Pizza)"
-                            alt="Gráfico de Gastos em formato Pizza">
+                        <canvas id="gastosChart"></canvas>
                     </div>
-                    <button class="btn-full-width">Ver mais</button>
+                    <!-- Botão abre painel de edição -->
+                    <button class="btn-full-width btn-ver-mais" data-type="gastos">Gerenciar Gastos</button>
                 </div>
 
-                <!-- Card: Lembretes -->
+                <!-- CARD LEMBRETES -->
                 <div class="dashboard-card card-lembretes">
                     <div class="card-header">
                         <h2>Lembretes Pessoais</h2>
                     </div>
-                    <ul class="lembretes-list">
+                    <ul class="lembretes-list" id="listaLembretes">
                         <li>
                             <span>Investir no Bradesco</span>
                             <div class="lembretes-actions">
-                                <button aria-label="Ver mais"><i class="bi bi-eye"></i></button>
-                                <button class="btn-delete" aria-label="Excluir"><i
-                                        class="bi bi-trash-fill"></i></button>
+                                <button class="btn-hide" aria-label="Ocultar"><i class="bi bi-eye"></i></button>
+                                <button class="btn-delete" aria-label="Excluir"><i class="bi bi-trash-fill"></i></button>
                             </div>
                         </li>
-                        <li>
-                            <span>Bolsa Monitoria</span>
-                            <div class="lembretes-actions">
-                                <button aria-label="Ver mais"><i class="bi bi-eye"></i></button>
-                                <button class="btn-delete" aria-label="Excluir"><i
-                                        class="bi bi-trash-fill"></i></button>
-                            </div>
-                        </li>
-                        <li>
-                            <span>Adicionar o custo de hoje</span>
-                            <div class="lembretes-actions">
-                                <button aria-label="Ver mais"><i class="bi bi-eye"></i></button>
-                                <button class="btn-delete" aria-label="Excluir"><i
-                                        class="bi bi-trash-fill"></i></button>
-                            </div>
-                        </li>
-                        <!-- Mais itens... -->
                     </ul>
-                    <form class="lembretes-form">
-                        <input type="text" placeholder="Adicionar lembrete...">
+                    <form class="lembretes-form" id="formLembrete">
+                        <input type="text" id="inputLembrete" placeholder="Adicionar lembrete..." required>
                         <button type="submit" aria-label="Adicionar"><i class="bi bi-plus-lg"></i></button>
                     </form>
                 </div>
 
             </section>
 
-            <!-- Card: Patrimônio Acumulado (Linha) -->
+            <!-- CARD PATRIMÔNIO (Com Adicionar/Remover Conta) -->
             <section class="dashboard-card chart-patrimonio">
                 <div class="card-header">
                     <h2>Seu patrimônio acumulado</h2>
-                    <select class="filter-select">
-                        <option value="todas">Todas as contas</option>
-                        <option value="itau">Itaú</option>
-                        <option value="nubank">Nubank</option>
-                        <option value="bradesco">Bradesco</option>
-                    </select>
+                    <!-- Ações de conta -->
+                    <div style="display: flex; align-items: center;">
+                        <span style="font-size: 0.9rem; color: #888; margin-right: 10px;">Gerenciar Contas:</span>
+                    </div>
                 </div>
                 <div class="chart-placeholder">
-                    <img src="https://placehold.co/1200x400/393E46/EEEEEE?text=Gráfico+de+Patrimônio+(Linha)"
-                        alt="Gráfico de Patrimônio Acumulado">
+                    <canvas id="patrimonioChart"></canvas>
                 </div>
-                <div class="chart-tabs">
-                    <button class="active">Itaú</button>
-                    <button>Nubank</button>
-                    <button>Bradesco</button>
-                    <button>PicPay</button>
+                
+                <div style="display: flex; justify-content: center; align-items: center; margin-top: 1.5rem;">
+                    <!-- Container das abas geradas via JS -->
+                    <div class="chart-tabs" id="patrimonioTabs">
+                        <!-- Abas serão injetadas aqui -->
+                    </div>
+                    <!-- Botão Adicionar Banco -->
+                    <button class="btn-add-bank" id="btnAddBank" title="Adicionar nova conta"><i class="bi bi-plus-lg"></i></button>
+                    <!-- Botão Remover Banco Atual -->
+                    <button class="btn-delete-bank" id="btnDeleteBank" title="Excluir conta atual"><i class="bi bi-trash"></i></button>
                 </div>
+
                 <div class="alert-box">
-                    <span><i class="bi bi-info-circle-fill"></i> Sua conta do <b>Itaú</b> teve um rendimento menor que
-                        as demais contas!</span>
-                    <button aria-label="Fechar alerta">&times;</button>
+                    <span><i class="bi bi-info-circle-fill"></i> Selecione uma conta para ver o histórico.</span>
+                    <button aria-label="Fechar alerta" onclick="this.parentElement.style.display='none'">&times;</button>
                 </div>
             </section>
 
-            <!-- Card: Seus Investimentos (Barra) -->
+            <!-- CARD INVESTIMENTOS -->
             <section class="dashboard-card chart-investimentos">
                 <div class="card-header">
                     <h2>Seus Investimentos</h2>
                     <select class="filter-select">
-                        <option value="todos">Todos os investimentos</option>
+                        <option value="todos">Todos</option>
                         <option value="renda-fixa">Renda Fixa</option>
-                        <option value="renda-variavel">Renda Variável</option>
                     </select>
                 </div>
                 <div class="chart-placeholder">
-                    <img src="https://placehold.co/1200x400/393E46/EEEEEE?text=Gráfico+de+Investimentos+(Barra)"
-                        alt="Gráfico de Seus Investimentos">
+                    <canvas id="investimentosChart"></canvas>
                 </div>
-                <button class="btn-full-width">Ver mais</button>
+                <!-- Botão Ver Mais restaurado com atributo data-type -->
+                <button class="btn-full-width btn-ver-mais" data-type="investimentos">Ver Detalhes</button>
             </section>
 
-            <!-- NOVO Botão Editar Dashboard -->
             <div class="edit-dashboard-wrapper">
                 <button class="btn-edit-dashboard">
                     <i class="bi bi-sliders"></i>
@@ -191,20 +146,38 @@
         </div>
     </main>
 
-    <!-- 
-        ==========================================================================
-           FOOTER (Idêntico)
-        ==========================================================================
-    -->
+    <!-- PAINEL LATERAL (OFF-CANVAS) -->
+    <div class="offcanvas-overlay" id="offcanvasOverlay"></div>
+    <div class="offcanvas-panel" id="offcanvasPanel">
+        <div class="offcanvas-header">
+            <h2 id="offcanvasTitle">Detalhes</h2>
+            <button class="close-offcanvas" id="closeOffcanvas">&times;</button>
+        </div>
+        <!-- Conteúdo injetado via JS -->
+        <div id="offcanvasContent"></div>
+    </div>
+
+    <!-- MODAL ADICIONAR BANCO -->
+    <div class="modal-overlay" id="modalAddBank">
+        <div class="modal-content">
+            <h3>Nova Conta</h3>
+            <p style="color: #bbb; font-size: 0.9rem;">Adicione uma nova instituição ao seu patrimônio.</p>
+            <input type="text" id="inputBankName" placeholder="Nome do Banco (ex: Inter)">
+            <button class="btn-full-width" id="confirmAddBank">Adicionar</button>
+            <button style="background:none; border:none; color:#888; margin-top:10px; cursor:pointer;" onclick="document.getElementById('modalAddBank').style.display='none'">Cancelar</button>
+        </div>
+    </div>
+
+    <!-- --- Footer --- -->
     <footer class="footer">
         <div class="container footer-content">
             <div class="footer-links">
-                <a href="sobre.html">Sobre</a>
+                <a href="./pages/SobreNos/sobreNos.html">Sobre Nós</a>
                 <a href="#">Contato</a>
                 <a href="#">Privacidade</a>
             </div>
             <div class="footer-social">
-                <a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                <a href="https://github.com/AugustoBrunoo/EasyWallet" aria-label="GitHub"><i class="bi bi-github"></i></a>
                 <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
                 <a href="#" aria-label="Discord"><i class="bi bi-discord"></i></a>
             </div>
@@ -214,11 +187,6 @@
         </div>
     </footer>
 
-    <!-- 
-        ==========================================================================
-           SCRIPTS (Menu Mobile Adaptado)
-        ==========================================================================
-    -->
     <script src="./perfilLogado.js"></script>
 </body>
 
