@@ -1,8 +1,3 @@
-/* ==========================================================================
-   3. ESTILOS ESPECÍFICOS DA PÁGINA "MEU PERFIL" (perfil.css)
-========================================================================== 
-*/
-
 .profile-container {
     padding-top: 2rem;
     padding-bottom: 4rem;
@@ -157,12 +152,15 @@
 .btn-logout {
     background-color: transparent;
     border: 1px solid #ff6b6b;
-    color: #ff6b6b;
+    color: white;
+    background-color: #ff6b6b;
 }
 
 .btn-logout:hover {
-    background-color: #ff6b6b;
     color: #fff;
+    color: var(--branco-gelo);
+    /* box-shadow: 0 0 15px rgba(0, 173, 181, 0.4); */
+    transform: translateY(-2px);
 }
 
 /* --- Direita: Gamificação --- */
@@ -277,8 +275,34 @@
     transition: all 0.3s ease;
 }
 
+.btn-ver-mais {
+    background-color: var(--azul);
+    border: 1px solid var(--azul);
+    color: var(--branco-gelo);
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+    /* Estilo pílula */
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    /* Espaço para o texto acima */
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
 .btn-view-rewards:hover {
     background-color: var(--azul);
+    color: var(--branco-gelo);
+    box-shadow: 0 0 15px rgba(0, 173, 181, 0.4);
+    transform: translateY(-2px);
+}
+
+.btn-ver-mais:hover {
     color: var(--branco-gelo);
     box-shadow: 0 0 15px rgba(0, 173, 181, 0.4);
     transform: translateY(-2px);

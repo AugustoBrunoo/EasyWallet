@@ -9,9 +9,6 @@ body {
     min-height: 100vh;
 }
 
-/* --- Header Simplificado (Quiz) --- */
-/* header específico para o Quiz */
-
 .header-quiz {
     background-color: var(--azul-marinho);
     padding: 1.5rem 0;
@@ -22,7 +19,6 @@ body {
 .header-quiz .container {
     display: flex;
     justify-content: center;
-    /* Centraliza o logo, como pedido */
     align-items: center;
 }
 
@@ -39,11 +35,6 @@ body {
     margin-right: 0.75rem;
 }
 
-/* --- Conteúdo Principal (Resultado) --- */
-/* NOTA: Este 'main' é específico para esta página (com flex-grow)
-         * para fazer o layout do footer funcionar. 
-         * Recomendo manter.
-        */
 main {
     flex-grow: 1;
     display: flex;
@@ -52,7 +43,6 @@ main {
     padding: 4rem 0;
 }
 
-/* NOTA: Estas classes de resultado são específicas */
 .result-container {
     width: 100%;
 }
@@ -81,7 +71,7 @@ main {
 
 /* --- (FIM) Animação de Fade-in Suave --- */
 
-/* --- (NOVO) Aviso de Importação de Imagem --- */
+/* --- Aviso de Importação de Imagem --- */
 .result-info-notice {
     display: flex;
     align-items: flex-start;
@@ -117,9 +107,6 @@ main {
     color: var(--azul);
     font-weight: 600;
 }
-
-/* --- Fim do Novo Estilo --- */
-
 
 /* Card de Resultado */
 .result-card {

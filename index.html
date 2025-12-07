@@ -5,47 +5,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./assets/logo-site/logo-iniciais.png" type="image/x-icon">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    
     <link rel="stylesheet" href="./styles/styleGlobal.css">
 
-    <!-- Importação das Fontes (Inter) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 
-    <!-- Importação dos Ícones (Bootstrap Icons) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <title>Easy Wallet</title>
-
+    <title>Início | Easy Wallet</title>
 </head>
 
 <body>
-    <!-- Página inicial (Landing Page Inicial) - Home -->
-
-    <!-- --- Header --- -->
     <header class="header">
         <div class="container nav-container">
             <a href="#" class="logo">
-                <!-- Corrigir a imagem da logo - há fundo nela e a iamgem fica pequena-->
                 <img src="./assets/logo-site/logo-carteira2.png" alt="Logo EasyWallet">
                 <p class="nome-logo">EasyWallet</p>
             </a>
 
-            <!-- Menu para Desktop -->
             <nav class="nav-links" id="nav-menu">
                 <ul>
                     <li><a href="#" class="active">Início</a></li>
                     <li><a href="./pages/comoFunciona/comoFunciona.html">Como Funciona?</a></li>
                     <li><a href="./pages/SobreNos/sobreNos.html">Sobre Nós</a></li>
-                    <!-- O item de login mobile será injetado aqui via JS (ajustar)-->
                 </ul>
             </nav>
 
             <a href="./pages/Login/login.html" class="btn-login btn-login-desktop">Login</a>
 
-            <!-- Botão de Menu Mobile -->
             <button class="menu-toggle" id="menu-toggle-btn" aria-label="Abrir menu">
                 <i class="bi bi-list"></i>
             </button>
@@ -53,7 +42,6 @@
     </header>
 
     <main>
-        <!-- --- Seção Hero --- -->
         <section class="hero">
             <div class="container hero-content">
                 <div class="hero-text">
@@ -69,20 +57,17 @@
                     <a href="./pages/Cadastro/cadastro.html" class="btn-cta">Comece Agora (É grátis!)</a>
                 </div>
                 <div class="hero-image">
-                    <!-- Imagem adicionada diretamente ao HTML -->
                     <img src="./assets/imgs/imagem_pagina_inicial.png"
                         alt="Visualização do App EasyWallet em celular e notebook">
                 </div>
             </div>
         </section>
 
-        <!-- --- Seção Features --- -->
         <section class="features">
             <div class="container">
                 <h2 class="features-title">Tudo que você precisa para decolar financeiramente!</h2>
 
                 <div class="features-grid">
-                    <!-- Card 1: Controle de Gastos -->
                     <div class="feature-card">
                         <i class="bi bi-cash-coin"></i>
                         <h3>Controle de Gastos</h3>
@@ -93,7 +78,6 @@
                         </p>
                     </div>
 
-                    <!-- Card 2: Planejador de Metas -->
                     <div class="feature-card">
                         <i class="bi bi-graph-up-arrow"></i>
                         <h3>Planejador de Metas</h3>
@@ -104,7 +88,6 @@
                         </p>
                     </div>
 
-                    <!-- Card 3: Guia de Investimentos -->
                     <div class="feature-card">
                         <i class="bi bi-rocket-takeoff"></i>
                         <h3>Guia de Investimentos</h3>
@@ -118,13 +101,12 @@
         </section>
     </main>
 
-    <!-- --- Footer --- -->
     <footer class="footer">
         <div class="container footer-content">
             <div class="footer-links">
                 <a href="./pages/SobreNos/sobreNos.html">Sobre Nós</a>
                 <a href="./pages/Contato/contato.html">Contato</a>
-                <a href="#">Privacidade</a>
+                <a href="./pages/emConstrucao/emConstrucao.html">Privacidade</a>
             </div>
             <div class="footer-social">
                 <a href="https://github.com/AugustoBrunoo/EasyWallet" aria-label="GitHub"><i class="bi bi-github"></i></a>
@@ -138,9 +120,6 @@
     </footer>
 
     <script src="./scripts/scriptGlobal.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
-        </script>
-</body>
+    </body>
 
 </html>
