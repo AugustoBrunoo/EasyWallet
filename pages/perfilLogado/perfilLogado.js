@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-
     // --- Outros scripts do dashboard (ex: fechar alerta) ---
     const alertBox = document.querySelector('.alert-box');
     if (alertBox) {
@@ -11,6 +10,42 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const btnOpen = document.getElementById('btnOpenMenu');
+    const btnClose = document.getElementById('btnCloseMenu');
+    const menuOverlay = document.getElementById('dashboardMenu');
+    const menuContainer = document.querySelector('.menu-container');
+
+    // Abrir Menu
+    btnOpen.addEventListener('click', () => {
+        menuOverlay.classList.add('active');
+        document.body.classList.add('no-scroll'); 
+    });
+
+    // Fechar Menu
+    const closeMenu = () => {
+        menuOverlay.classList.remove('active');
+        document.body.classList.remove('no-scroll'); 
+    };
+
+    btnClose.addEventListener('click', closeMenu);
+
+    // Fechar ao clicar fora do container (no fundo escuro)
+    menuOverlay.addEventListener('click', (e) => {
+        if (e.target === menuOverlay) {
+            closeMenu();
+        }
+    });
+
+    // Fechar com tecla ESC
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && menuOverlay.classList.contains('active')) {
+            closeMenu();
+        }
+    });
+});
+
 document.addEventListener('DOMContentLoaded', function () {
 
     // --- CORES & CONFIGS ---
@@ -64,12 +99,12 @@ document.addEventListener('DOMContentLoaded', function () {
         const dataValues = [...gastosData.fixos, ...gastosData.variaveis].map(i => i.valor);
 
         // --- NOVAS CORES (Paleta do Site) ---
-        // Vamos usar tons derivados do tema:
+
         // #00adb5 (Azul Neon Principal)
         // #eeeeee (Branco Gelo)
-        // #393e46 (Cinza Médio - mas precisa ser visível, então usaremos um tom clareado)
-        // #222831 (Azul Marinho - muito escuro, usar com cuidado)
-        // Alternativas: Azul mais claro, Cinza azulado.
+        // #393e46 (Cinza Médio)
+        // #222831 (Azul Marinho)
+        
 
         const palette = [
             '#00adb5', // Azul Principal

@@ -25,7 +25,6 @@
 </head>
 
 <body>
-
     <header class="header">
         <div class="container nav-container">
             <a href="../../index.html" class="logo">
@@ -47,8 +46,10 @@
             <header class="dashboard-header">
                 <h1>Dashboard</h1>
                 <div class="dashboard-welcome">
-                    <p>Olá, <span class="nome-destaque">Pierre Chapetta</span>! Aqui vai um breve resumo das suas finanças:</p>
-                    <button class="sidebar-toggle">
+                    <p>Olá, <span class="nome-destaque">Pierre Chapetta</span>! Aqui vai um breve resumo das suas
+                        finanças:
+                    </p>
+                    <button class="sidebar-toggle" id="btnOpenMenu">
                         <i class="bi bi-grid-fill"></i>
                         <span>Abrir Menu</span>
                     </button>
@@ -79,7 +80,8 @@
                             <span>Investir no Bradesco</span>
                             <div class="lembretes-actions">
                                 <button class="btn-hide" aria-label="Ocultar"><i class="bi bi-eye"></i></button>
-                                <button class="btn-delete" aria-label="Excluir"><i class="bi bi-trash-fill"></i></button>
+                                <button class="btn-delete" aria-label="Excluir"><i
+                                        class="bi bi-trash-fill"></i></button>
                             </div>
                         </li>
                     </ul>
@@ -103,21 +105,24 @@
                 <div class="chart-placeholder">
                     <canvas id="patrimonioChart"></canvas>
                 </div>
-                
+
                 <div style="display: flex; justify-content: center; align-items: center; margin-top: 1.5rem;">
                     <!-- Container das abas geradas via JS -->
                     <div class="chart-tabs" id="patrimonioTabs">
                         <!-- Abas serão injetadas aqui -->
                     </div>
                     <!-- Botão Adicionar Banco -->
-                    <button class="btn-add-bank" id="btnAddBank" title="Adicionar nova conta"><i class="bi bi-plus-lg"></i></button>
+                    <button class="btn-add-bank" id="btnAddBank" title="Adicionar nova conta"><i
+                            class="bi bi-plus-lg"></i></button>
                     <!-- Botão Remover Banco Atual -->
-                    <button class="btn-delete-bank" id="btnDeleteBank" title="Excluir conta atual"><i class="bi bi-trash"></i></button>
+                    <button class="btn-delete-bank" id="btnDeleteBank" title="Excluir conta atual"><i
+                            class="bi bi-trash"></i></button>
                 </div>
 
                 <div class="alert-box">
                     <span><i class="bi bi-info-circle-fill"></i> Selecione uma conta para ver o histórico.</span>
-                    <button aria-label="Fechar alerta" onclick="this.parentElement.style.display='none'">&times;</button>
+                    <button aria-label="Fechar alerta"
+                        onclick="this.parentElement.style.display='none'">&times;</button>
                 </div>
             </section>
 
@@ -165,7 +170,8 @@
             <p style="color: #bbb; font-size: 0.9rem;">Adicione uma nova instituição ao seu patrimônio.</p>
             <input type="text" id="inputBankName" placeholder="Nome do Banco (ex: Inter)">
             <button class="btn-full-width" id="confirmAddBank">Adicionar</button>
-            <button style="background:none; border:none; color:#888; margin-top:10px; cursor:pointer;" onclick="document.getElementById('modalAddBank').style.display='none'">Cancelar</button>
+            <button style="background:none; border:none; color:#888; margin-top:10px; cursor:pointer;"
+                onclick="document.getElementById('modalAddBank').style.display='none'">Cancelar</button>
         </div>
     </div>
 
@@ -177,7 +183,8 @@
                 <a href="#">Privacidade</a>
             </div>
             <div class="footer-social">
-                <a href="https://github.com/AugustoBrunoo/EasyWallet" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                <a href="https://github.com/AugustoBrunoo/EasyWallet" aria-label="GitHub"><i
+                        class="bi bi-github"></i></a>
                 <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
                 <a href="#" aria-label="Discord"><i class="bi bi-discord"></i></a>
             </div>
@@ -186,6 +193,113 @@
             </div>
         </div>
     </footer>
+
+    <!-- 2. O MENU (Overlay + Modal) -->
+    <div class="menu-overlay" id="dashboardMenu">
+        <div class="menu-container">
+
+            <!-- Cabeçalho -->
+            <div class="menu-header">
+                <h2><i class="bi bi-grid-fill"></i> Menu</h2>
+                <button class="btn-close-menu" id="btnCloseMenu">&times;</button>
+            </div>
+
+            <!-- Corpo com Grid -->
+            <div class="menu-body">
+                <div class="menu-grid">
+
+                    <!-- Opção 1: Patrimônio -->
+                    <div class="menu-option" onclick="alert('Ir para Patrimônio')">
+                        <div class="option-icon">
+                            <i class="bi bi-bank2"></i>
+                        </div>
+                        <div class="option-content">
+                            <h3>Patrimônio Acumulado</h3>
+                            <p>Visualize o saldo total de todas as suas contas bancárias cadastradas.</p>
+                        </div>
+                    </div>
+
+                    <!-- Opção 2: Gastos -->
+                    <div class="menu-option" onclick="alert('Ir para Gastos')">
+                        <div class="option-icon">
+                            <i class="bi bi-credit-card-2-front-fill"></i>
+                        </div>
+                        <div class="option-content">
+                            <h3>Meus Gastos</h3>
+                            <p>Gerencie suas despesas fixas e variáveis e veja para onde seu dinheiro vai.</p>
+                        </div>
+                    </div>
+
+                    <!-- Opção 3: Investimentos -->
+                    <div class="menu-option" onclick="alert('Ir para Investimentos')">
+                        <div class="option-icon">
+                            <i class="bi bi-graph-up-arrow"></i>
+                        </div>
+                        <div class="option-content">
+                            <h3>Meus Investimentos</h3>
+                            <p>Acompanhe a performance da sua carteira de ações e renda fixa.</p>
+                        </div>
+                    </div>
+
+                    <!-- Opção 4: Recomendações -->
+                    <div class="menu-option" onclick="alert('Ir para Recomendações')">
+                        <div class="option-icon">
+                            <i class="bi bi-lightning-charge-fill"></i>
+                        </div>
+                        <div class="option-content">
+                            <h3>Recomendações EasyWallet</h3>
+                            <p>Dicas personalizadas para otimizar seus rendimentos baseadas no seu perfil.</p>
+                        </div>
+                    </div>
+
+                    <!-- Opção 5: Alterar Dashboard -->
+                    <div class="menu-option" onclick="alert('Modo de Edição Ativado')">
+                        <div class="option-icon">
+                            <i class="bi bi-sliders"></i>
+                        </div>
+                        <div class="option-content">
+                            <h3>Alterar Dashboard</h3>
+                            <p>Personalize a ordem dos cards e escolha o que você quer ver na tela inicial.</p>
+                        </div>
+                    </div>
+
+                    <!-- Opção 6: Minhas Criptomoedas (NOVO) -->
+                    <div class="menu-option" onclick="alert('Ir para Criptomoedas')">
+                        <div class="option-icon">
+                            <i class="bi bi-currency-bitcoin"></i>
+                        </div>
+                        <div class="option-content">
+                            <h3>Minhas Criptomoedas</h3>
+                            <p>Acompanhe cotações em tempo real e gerencie sua carteira de ativos digitais.</p>
+                        </div>
+                    </div>
+
+                    <!-- Opção 7: Meu Perfil (NOVO) -->
+                    <div class="menu-option" onclick="alert('Ir para Meu Perfil')">
+                        <div class="option-icon">
+                            <i class="bi bi-person-fill"></i>
+                        </div>
+                        <div class="option-content">
+                            <h3>Meu Perfil</h3>
+                            <p>Atualize seus dados pessoais, senha e preferências da conta.</p>
+                        </div>
+                    </div>
+
+                    <!-- Opção 8: Sair da Conta (NOVO) -->
+                    <div class="menu-option" onclick="alert('Logout acionado')">
+                        <div class="option-icon">
+                            <i class="bi bi-box-arrow-right"></i>
+                        </div>
+                        <div class="option-content">
+                            <h3>Sair da Conta</h3>
+                            <p>Encerre sua sessão atual no dispositivo com segurança.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="./perfilLogado.js"></script>
 </body>

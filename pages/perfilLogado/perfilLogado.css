@@ -582,6 +582,195 @@ main {
     border-radius: 6px;
 }
 
+/* --- 4. O NOVO MENU (OFFCANVAS/MODAL GRANDE) --- */
+
+/* Overlay que cobre a tela inteira */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--overlay-bg);
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+
+    /* Centraliza o conteúdo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+    /* Efeito de desfoque moderno */
+}
+
+/* Estado Ativo (Aberto) */
+.menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Container Principal do Menu */
+.menu-container {
+    background-color: var(--azul-marinho);
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    /* Não deixa passar da altura da tela */
+    border-radius: 16px;
+    border: 1px solid rgba(0, 173, 181, 0.3);
+    /* Borda sutil azul */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transform: scale(0.9);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Efeito 'pop' */
+}
+
+.menu-overlay.active .menu-container {
+    transform: scale(1);
+}
+
+/* Cabeçalho do Menu */
+.menu-header {
+    padding: 1.5rem 2rem;
+    background-color: var(--cinza);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.menu-header h2 {
+    font-size: 1.5rem;
+    color: var(--branco-gelo);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-close-menu {
+    background: none;
+    border: none;
+    color: #888;
+    font-size: 2rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.btn-close-menu:hover {
+    color: var(--azul);
+}
+
+
+body.no-scroll {
+    overflow: hidden;
+}
+
+/* Corpo do Menu (Onde fica o Grid) */
+.menu-body {
+    padding: 2rem;
+    overflow-y: auto;
+    /* Permite scroll se a tela for pequena */
+}
+
+/* GRID RESPONSIVO */
+.menu-grid {
+    display: grid;
+    gap: 1.5rem;
+    /* Padrão: 2 colunas */
+    grid-template-columns: 1fr 1fr;
+}
+
+/* Cartão de Opção */
+.menu-option {
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid transparent;
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    /* Caso use tag <a> */
+    color: inherit;
+}
+
+.menu-option:hover {
+    background-color: rgba(0, 173, 181, 0.1);
+    /* Fundo azul bem leve */
+    border-color: var(--azul);
+    transform: translateY(-5px);
+}
+
+/* Ícone do Cartão */
+.option-icon {
+    background-color: var(--cinza);
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--azul);
+    flex-shrink: 0;
+    transition: background-color 0.3s;
+}
+
+.menu-option:hover .option-icon {
+    background-color: var(--azul);
+    color: var(--branco-gelo);
+}
+
+/* Texto do Cartão */
+.option-content h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+    color: var(--branco-gelo);
+}
+
+.option-content p {
+    font-size: 0.9rem;
+    color: #aaa;
+    line-height: 1.4;
+}
+
+/* --- 5. RESPONSIVIDADE (Tablets e Celulares) --- */
+
+/* Tablet já usa 2 colunas por padrão do grid acima. */
+
+/* Mobile (Telas menores que 768px) -> 1 Coluna */
+@media (max-width: 768px) {
+    .menu-container {
+        width: 95%;
+        height: 95%;
+        max-height: none;
+    }
+
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .menu-option {
+        padding: 1.2rem;
+        align-items: center;
+    }
+
+    .option-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+}
+
 /* --- RESPONSIVIDADE (Específica da Página Dashboard) --- */
 
 @media (max-width: 992px) {
