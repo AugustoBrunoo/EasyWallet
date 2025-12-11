@@ -13,18 +13,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 
+    <!-- Ícones Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-    <!-- Chart.js (Para gráficos) -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <!-- Estilização -->
     <link rel="stylesheet" href="../../styles/styleGlobal.css">
     <link rel="stylesheet" href="./perfilLogado.css">
-
 </head>
 
 <body>
+    <!-- CABEÇALHO -->
     <header class="header">
         <div class="container nav-container">
             <a href="../../index.html" class="logo">
@@ -43,19 +41,20 @@
     <main>
         <div class="container dashboard-container">
 
+            <!-- TÍTULO E BOAS-VINDAS -->
             <header class="dashboard-header">
                 <h1>Dashboard</h1>
                 <div class="dashboard-welcome">
                     <p>Olá, <span class="nome-destaque">Pierre Chapetta</span>! Aqui vai um breve resumo das suas
-                        finanças:
-                    </p>
-                    <button class="sidebar-toggle" id="btnOpenMenu">
+                        finanças:</p>
+                    <button class="sidebar-toggle btnOpenMenu" id="btnOpenMenu">
                         <i class="bi bi-grid-fill"></i>
                         <span>Abrir Menu</span>
                     </button>
                 </div>
             </header>
 
+            <!-- GRID SUPERIOR (Gastos e Lembretes) -->
             <section class="dashboard-grid-top">
 
                 <!-- CARD GASTOS -->
@@ -93,34 +92,51 @@
 
             </section>
 
-            <!-- CARD PATRIMÔNIO (Com Adicionar/Remover Conta) -->
+            <!-- CARD PATRIMÔNIO (NOVO DESIGN) -->
             <section class="dashboard-card chart-patrimonio">
                 <div class="card-header">
                     <h2>Seu patrimônio acumulado</h2>
-                    <!-- Ações de conta -->
+                    <!-- Valor Total Dinâmico -->
                     <div style="display: flex; align-items: center;">
-                        <span style="font-size: 0.9rem; color: #888; margin-right: 10px;">Gerenciar Contas:</span>
+                        <span style="font-size: 0.9rem; color: #888; margin-right: 10px;">Saldo Atual: (R$)</span>
+                        <span style="font-weight:bold; font-size:1.1rem; color: var(--azul);" id="valorTotalDisplay">R$
+                            --</span>
                     </div>
                 </div>
+
                 <div class="chart-placeholder">
                     <canvas id="patrimonioChart"></canvas>
                 </div>
 
-                <div style="display: flex; justify-content: center; align-items: center; margin-top: 1.5rem;">
-                    <!-- Container das abas geradas via JS -->
-                    <div class="chart-tabs" id="patrimonioTabs">
-                        <!-- Abas serão injetadas aqui -->
+                <!-- CONTAINER DE CONTROLES -->
+                <div class="patrimonio-controls-container">
+
+                    <!-- Lado Esquerdo: Abas dos Bancos -->
+                    <div class="tabs-area">
+                        <span class="tabs-label"><i class="bi bi-wallet2"></i> Contas:</span>
+                        <div class="chart-tabs" id="patrimonioTabs">
+                            <!-- Abas serão injetadas aqui pelo JS -->
+                        </div>
                     </div>
-                    <!-- Botão Adicionar Banco -->
-                    <button class="btn-add-bank" id="btnAddBank" title="Adicionar nova conta"><i
-                            class="bi bi-plus-lg"></i></button>
-                    <!-- Botão Remover Banco Atual -->
-                    <button class="btn-delete-bank" id="btnDeleteBank" title="Excluir conta atual"><i
-                            class="bi bi-trash"></i></button>
+
+                    <!-- Separador Vertical -->
+                    <div class="controls-divider"></div>
+
+                    <!-- Lado Direito: Ações -->
+                    <div class="actions-area">
+                        <button class="btn-add-bank-modern" id="btnAddBank" title="Adicionar nova conta">
+                            <i class="bi bi-plus-circle-fill"></i> Nova Conta
+                        </button>
+
+                        <button class="btn-delete-bank-modern" id="btnDeleteBank" title="Excluir conta atual">
+                            <i class="bi bi-trash3"></i>
+                        </button>
+                    </div>
                 </div>
 
                 <div class="alert-box">
-                    <span><i class="bi bi-info-circle-fill"></i> Selecione uma conta para ver o histórico.</span>
+                    <span><i class="bi bi-info-circle-fill"></i> Selecione uma conta para ver o histórico
+                        detalhado.</span>
                     <button aria-label="Fechar alerta"
                         onclick="this.parentElement.style.display='none'">&times;</button>
                 </div>
@@ -138,10 +154,11 @@
                 <div class="chart-placeholder">
                     <canvas id="investimentosChart"></canvas>
                 </div>
-                <!-- Botão Ver Mais restaurado com atributo data-type -->
+                <!-- Botão Ver Mais -->
                 <button class="btn-full-width btn-ver-mais" data-type="investimentos">Ver Detalhes</button>
             </section>
 
+            <!-- BOTÃO EDITAR DASHBOARD -->
             <div class="edit-dashboard-wrapper">
                 <button class="btn-edit-dashboard">
                     <i class="bi bi-sliders"></i>
@@ -152,7 +169,7 @@
         </div>
     </main>
 
-    <!-- PAINEL LATERAL (OFF-CANVAS) -->
+    <!-- PAINEL LATERAL (OFF-CANVAS - GASTOS E INVESTIMENTOS) -->
     <div class="offcanvas-overlay" id="offcanvasOverlay"></div>
     <div class="offcanvas-panel" id="offcanvasPanel">
         <div class="offcanvas-header">
@@ -175,6 +192,7 @@
         </div>
     </div>
 
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="container footer-content">
             <div class="footer-links">
@@ -194,7 +212,7 @@
         </div>
     </footer>
 
-    <!-- 2. O MENU (Overlay + Modal) -->
+    <!-- MENU FULLSCREEN (Dashboard Menu) -->
     <div class="menu-overlay" id="dashboardMenu">
         <div class="menu-container">
 
@@ -209,7 +227,7 @@
                 <div class="menu-grid">
 
                     <!-- Opção 1: Patrimônio -->
-                    <div class="menu-option" onclick="alert('Ir para Patrimônio')">
+                    <a href="../emConstrucao/emConstrucao.html" class="menu-option">
                         <div class="option-icon">
                             <i class="bi bi-bank2"></i>
                         </div>
@@ -217,10 +235,10 @@
                             <h3>Patrimônio Acumulado</h3>
                             <p>Visualize o saldo total de todas as suas contas bancárias cadastradas.</p>
                         </div>
-                    </div>
+                    </a>
 
                     <!-- Opção 2: Gastos -->
-                    <div class="menu-option" onclick="alert('Ir para Gastos')">
+                    <a href="../emConstrucao/emConstrucao.html" class="menu-option">
                         <div class="option-icon">
                             <i class="bi bi-credit-card-2-front-fill"></i>
                         </div>
@@ -228,10 +246,10 @@
                             <h3>Meus Gastos</h3>
                             <p>Gerencie suas despesas fixas e variáveis e veja para onde seu dinheiro vai.</p>
                         </div>
-                    </div>
+                    </a>
 
                     <!-- Opção 3: Investimentos -->
-                    <div class="menu-option" onclick="alert('Ir para Investimentos')">
+                    <a href="../emConstrucao/emConstrucao.html" class="menu-option">
                         <div class="option-icon">
                             <i class="bi bi-graph-up-arrow"></i>
                         </div>
@@ -239,10 +257,10 @@
                             <h3>Meus Investimentos</h3>
                             <p>Acompanhe a performance da sua carteira de ações e renda fixa.</p>
                         </div>
-                    </div>
+                    </a>
 
                     <!-- Opção 4: Recomendações -->
-                    <div class="menu-option" onclick="alert('Ir para Recomendações')">
+                    <a href="../emConstrucao/emConstrucao.html" class="menu-option">
                         <div class="option-icon">
                             <i class="bi bi-lightning-charge-fill"></i>
                         </div>
@@ -250,10 +268,10 @@
                             <h3>Recomendações EasyWallet</h3>
                             <p>Dicas personalizadas para otimizar seus rendimentos baseadas no seu perfil.</p>
                         </div>
-                    </div>
+                    </a>
 
                     <!-- Opção 5: Alterar Dashboard -->
-                    <div class="menu-option" onclick="alert('Modo de Edição Ativado')">
+                    <a href="../emConstrucao/emConstrucao.html" class="menu-option">
                         <div class="option-icon">
                             <i class="bi bi-sliders"></i>
                         </div>
@@ -261,10 +279,10 @@
                             <h3>Alterar Dashboard</h3>
                             <p>Personalize a ordem dos cards e escolha o que você quer ver na tela inicial.</p>
                         </div>
-                    </div>
+                    </a>
 
-                    <!-- Opção 6: Minhas Criptomoedas (NOVO) -->
-                    <div class="menu-option" onclick="alert('Ir para Criptomoedas')">
+                    <!-- Opção 6: Minhas Criptomoedas -->
+                    <a href="../emConstrucao/emConstrucao.html" class="menu-option">
                         <div class="option-icon">
                             <i class="bi bi-currency-bitcoin"></i>
                         </div>
@@ -272,10 +290,10 @@
                             <h3>Minhas Criptomoedas</h3>
                             <p>Acompanhe cotações em tempo real e gerencie sua carteira de ativos digitais.</p>
                         </div>
-                    </div>
+                    </a>
 
-                    <!-- Opção 7: Meu Perfil (NOVO) -->
-                    <div class="menu-option" onclick="alert('Ir para Meu Perfil')">
+                    <!-- Opção 7: Meu Perfil -->
+                    <a href="../emConstrucao/emConstrucao.html" class="menu-option">
                         <div class="option-icon">
                             <i class="bi bi-person-fill"></i>
                         </div>
@@ -283,10 +301,10 @@
                             <h3>Meu Perfil</h3>
                             <p>Atualize seus dados pessoais, senha e preferências da conta.</p>
                         </div>
-                    </div>
+                    </a>
 
-                    <!-- Opção 8: Sair da Conta (NOVO) -->
-                    <div class="menu-option" onclick="alert('Logout acionado')">
+                    <!-- Opção 8: Sair da Conta -->
+                    <a href="../emConstrucao/emConstrucao.html" class="menu-option">
                         <div class="option-icon">
                             <i class="bi bi-box-arrow-right"></i>
                         </div>
@@ -294,13 +312,17 @@
                             <h3>Sair da Conta</h3>
                             <p>Encerre sua sessão atual no dispositivo com segurança.</p>
                         </div>
-                    </div>
+                    </a>
 
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Chart.js (Para gráficos) -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Script Principal -->
     <script src="./perfilLogado.js"></script>
 </body>
 
