@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | EasyWallet</title>
+    <meta name="description" content="Acesse sua conta EasyWallet.">
+
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+        /* ================= Design Tokens (Mesmos do Site) ================= */
+        :root {
+            --bg: #08090a;
+            --bg-elevated: #121419;
+            --bg-elevated-hover: #171a21;
+            --bg-sunken: #030304;
+            --border: rgba(255, 255, 255, 0.08);
+            --border-strong: rgba(255, 255, 255, 0.16);
+            --border-focus: rgba(16, 185, 129, 0.4);
+
+            --primary: #10b981;
+            --primary-hover: #059669;
+            --primary-soft: rgba(16, 185, 129, 0.12);
+            --secondary: #0ea5e9;
+            --secondary-soft: rgba(14, 165, 233, 0.12);
+
+            --text-main: #f5f7fa;
+            --text-muted: #8b93a6;
+            --text-dim: #565d6d;
+
+            --font-display: 'Space Grotesk', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+
+            --gradient-text: linear-gradient(100deg, var(--primary) 10%, var(--secondary) 90%);
+            --gradient-glow: radial-gradient(circle, rgba(16, 185, 129, 0.22), rgba(14, 165, 233, 0.05) 65%, transparent 100%);
+
+            --ease: cubic-bezier(0.22, 1, 0.36, 1);
+            --transition: all 0.35s var(--ease);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg);
+            background-image:
+                radial-gradient(circle at 15% 0%, rgba(16, 185, 129, 0.06), transparent 40%),
+                radial-gradient(circle at 85% 100%, rgba(14, 165, 233, 0.06), transparent 40%);
+            color: var(--text-main);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ::selection {
+            background: var(--primary);
+            color: #04120d;
+        }
+
+        /* ================= Utilidades e Tipografia ================= */
+        .text-gradient {
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ================= Estrutura de Login ================= */
+        .login-wrapper {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 440px;
+            padding: 2rem;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .login-glass {
+            background: rgba(18, 20, 25, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border-strong);
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 24px 48px rgba(0, 0, 0, 0.4);
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+        }
+
+        .logo .logo-mark {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: grid;
+            place-items: center;
+            background: var(--gradient-text);
+            color: #04120d;
+            font-size: 1.1rem;
+        }
+
+        .login-header h1 {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .login-header p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* ================= Formulário ================= */
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 0.4rem;
+            color: var(--text-muted);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            background: var(--bg-sunken);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-main);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .form-control::placeholder {
+            color: var(--text-dim);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--border-focus);
+            box-shadow: 0 0 0 3px var(--primary-soft);
+            background: var(--bg-elevated);
+        }
+
+        .input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-wrapper .form-control {
+            padding-right: 2.5rem;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 12px;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            padding: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            font-size: 1.1rem;
+        }
+
+        .toggle-password:hover {
+            color: var(--text-main);
+        }
+        
+        .toggle-password:focus-visible {
+            outline: 2px solid var(--secondary);
+            border-radius: 4px;
+        }
+
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            font-size: 0.85rem;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .checkbox-label input {
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            border: 1px solid var(--border-strong);
+            border-radius: 4px;
+            background: var(--bg-sunken);
+            cursor: pointer;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .checkbox-label input:checked {
+            background: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .checkbox-label input:checked::after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 2px;
+            width: 4px;
+            height: 8px;
+            border: solid #04120d;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        .forgot-pass {
+            color: var(--primary);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .forgot-pass:hover {
+            color: var(--primary-hover);
+            text-decoration: underline;
+        }
+
+        /* ================= Botões ================= */
+        .btn-submit {
+            width: 100%;
+            padding: 0.95rem;
+            background: var(--gradient-text);
+            color: #04120d;
+            border-radius: 8px;
+            font-size: 0.98rem;
+            font-weight: 700;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-family: var(--font-body);
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(16, 185, 129, 0.25);
+        }
+
+        .login-footer {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .login-footer a {
+            color: var(--primary);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .login-footer a:hover {
+            color: var(--primary-hover);
+            text-decoration: underline;
+        }
+
+        /* Botão Voltar */
+        .back-link {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: var(--transition);
+            z-index: 20;
+        }
+
+        .back-link:hover {
+            color: var(--text-main);
+            transform: translateX(-4px);
+        }
+
+        /* ================= Decorações de Fundo ================= */
+        .bg-glow {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: var(--primary);
+            filter: blur(120px);
+            opacity: 0.15;
+            border-radius: 50%;
+            z-index: 1;
+            animation: float 8s ease-in-out infinite alternate;
+        }
+
+        .bg-glow-1 {
+            top: -10%;
+            left: -10%;
+        }
+
+        .bg-glow-2 {
+            bottom: -10%;
+            right: -10%;
+            background: var(--secondary);
+            animation-delay: -4s;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(30px, 40px); }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 560px) {
+            .login-wrapper {
+                padding: 1rem;
+            }
+            .login-glass {
+                padding: 2rem 1.5rem;
+            }
+            .back-link {
+                top: 1rem;
+                left: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Elementos de Fundo -->
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+
+    <a href="../index.html" class="back-link">
+        <i class="bi bi-arrow-left"></i> Voltar ao início
+    </a>
+
+    <div class="login-wrapper">
+        <div class="login-glass">
+            <div class="login-header">
+                <a href="../index.html" class="logo">
+                    <span class="logo-mark"><i class="bi bi-wallet2"></i></span>
+                    <span>EasyWallet</span>
+                </a>
+                <h1>Bem-vindo de volta</h1>
+                <p>Insira seus dados para acessar o seu painel.</p>
+            </div>
+
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="email">E-mail corporativo</label>
+                    <input type="email" id="email" class="form-control" placeholder="voce@empresa.com.br" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Senha</label>
+                    <div class="input-wrapper">
+                        <input type="password" id="password" class="form-control" placeholder="••••••••" required>
+                        <button type="button" class="toggle-password" id="togglePassword" aria-label="Mostrar senha">
+                            <i class="bi bi-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-options">
+                    <label class="checkbox-label">
+                        <input type="checkbox" checked>
+                        <span>Lembrar de mim</span>
+                    </label>
+                    <a href="#" class="forgot-pass">Esqueceu a senha?</a>
+                </div>
+
+                <button type="submit" class="btn-submit">Entrar na plataforma</button>
+            </form>
+
+            <div class="login-footer">
+                Ainda não tem uma conta? <a href="../index.html#pricing">Comece grátis</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+    const togglePassword = document.getElementById('togglePassword');
+    const passwordInput = document.getElementById('password');
+
+    if (togglePassword && passwordInput) {
+        togglePassword.addEventListener('click', () => {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            
+            // Alterna o ícone
+            const icon = togglePassword.querySelector('i');
+            if (type === 'text') {
+                icon.classList.remove('bi-eye');
+                icon.classList.add('bi-eye-slash');
+            } else {
+                icon.classList.remove('bi-eye-slash');
+                icon.classList.add('bi-eye');
+            }
+        });
+    }
+</script>
+</html>
